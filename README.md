@@ -1,4 +1,4 @@
-**Star fleet personnel manager**
+# Star fleet personnel manager
 
 [![pipeline status](https://gitlab.fi.muni.cz/xpolovka/pv168/badges/master/pipeline.svg)](https://gitlab.fi.muni.cz/xpolovka/pv168/commits/master)[![coverage report](https://gitlab.fi.muni.cz/xpolovka/pv168/badges/master/coverage.svg)](https://gitlab.fi.muni.cz/xpolovka/pv168/commits/master)
 
@@ -17,7 +17,9 @@ following properties (marked are implemented):
 
 _Note: The table above also describes user case diagram._
 
-''''PLACEHOLDER_FOR_CLASS_DIAGRAM'''
+### Class diagram
+
+_Soon..._
 
 ### GUI sample
 Yes, it really is LCARS. :v:
@@ -27,3 +29,7 @@ Yes, it really is LCARS. :v:
 Team composition:
 - Michal Polovka (@xpolovka)
 - Katarina Bulkova (@xbulkova)
+
+*Disclaimer:*
+
+_This project is not in any way related to Gene Roddenberry or is product of Star Trek official franchise. All images and/or other materials are property of their respective copyright holders._
