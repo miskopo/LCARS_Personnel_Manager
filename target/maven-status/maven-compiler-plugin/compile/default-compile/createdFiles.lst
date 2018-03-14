@@ -1,0 +1,11 @@
+cz/muni/fi/pv168/common/ServiceFailureException.class
+cz/muni/fi/pv168/model/AssignmentManager.class
+cz/muni/fi/pv168/common/IllegalEntityException.class
+cz/muni/fi/pv168/model/Ship.class
+cz/muni/fi/pv168/model/Assignment.class
+cz/muni/fi/pv168/lcars.class
+cz/muni/fi/pv168/model/CrewmanManager.class
+cz/muni/fi/pv168/model/ShipManager.class
+cz/muni/fi/pv168/common/ValidationException.class
+cz/muni/fi/pv168/model/Crewman.class
+cz/muni/fi/pv168/common/StarDate.class

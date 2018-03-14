@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>Crewman.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">semestralproject</a> &gt; <a href="index.source.html" class="el_package">cz.muni.fi.pv168.model</a> &gt; <span class="el_source">Crewman.java</span></div><h1>Crewman.java</h1><pre class="source lang-java linenums">package cz.muni.fi.pv168.model;
+
+import java.util.Objects;
+
+/**
+ * @author Katarina Bulkova
+ */
+public class Crewman {
+    private Long id;
+    private String name;
+    private String currentAssignment;
+    private String rank;
+
+<span class="nc" id="L14">    public Crewman() {</span>
+<span class="nc" id="L15">    }</span>
+
+<span class="nc" id="L17">    public Crewman(Long id, String name, String currentAssignment, String rank) {</span>
+<span class="nc" id="L18">        this.id = id;</span>
+<span class="nc" id="L19">        this.name = name;</span>
+<span class="nc" id="L20">        this.currentAssignment = currentAssignment;</span>
+<span class="nc" id="L21">        this.rank = rank;</span>
+<span class="nc" id="L22">    }</span>
+
+    public Long getId() {
+<span class="nc" id="L25">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="nc" id="L29">        this.id = id;</span>
+<span class="nc" id="L30">    }</span>
+
+    public String getName() {
+<span class="nc" id="L33">        return name;</span>
+    }
+
+    public void setName(String name) {
+<span class="nc" id="L37">        this.name = name;</span>
+<span class="nc" id="L38">    }</span>
+
+    public String getCurrentAssignment() {
+<span class="nc" id="L41">        return currentAssignment;</span>
+    }
+
+    public void setCurrentAssignment(String currentAssignment) {
+<span class="nc" id="L45">        this.currentAssignment = currentAssignment;</span>
+<span class="nc" id="L46">    }</span>
+
+    public String getRank() {
+<span class="nc" id="L49">        return rank;</span>
+    }
+
+    public void setRank(String rank) {
+<span class="nc" id="L53">        this.rank = rank;</span>
+<span class="nc" id="L54">    }</span>
+
+    @Override
+    public String toString() {
+<span class="nc" id="L58">        return &quot;Crewman{&quot; +</span>
+                &quot;id=&quot; + id +
+                &quot;, name='&quot; + name + '\'' +
+                &quot;, currentAssignment='&quot; + currentAssignment + '\'' +
+                &quot;, rank='&quot; + rank + '\'' +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+<span class="nc bnc" id="L68" title="All 2 branches missed.">        if (this == o) return true;</span>
+<span class="nc bnc" id="L69" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="nc" id="L70">        Crewman crewman = (Crewman) o;</span>
+<span class="nc" id="L71">        return Objects.equals(id, crewman.id);</span>
+    }
+
+    @Override
+    public int hashCode() {
+
+<span class="nc" id="L77">        return Objects.hash(id);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>

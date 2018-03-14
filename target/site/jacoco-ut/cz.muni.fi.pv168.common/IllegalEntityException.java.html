@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../.resources/report.css" type="text/css"/><link rel="shortcut icon" href="../.resources/report.gif" type="image/gif"/><title>IllegalEntityException.java</title><link rel="stylesheet" href="../.resources/prettify.css" type="text/css"/><script type="text/javascript" src="../.resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../.sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">semestralproject</a> &gt; <a href="index.source.html" class="el_package">cz.muni.fi.pv168.common</a> &gt; <span class="el_source">IllegalEntityException.java</span></div><h1>IllegalEntityException.java</h1><pre class="source lang-java linenums">package cz.muni.fi.pv168.common;
+
+/**
+ * This exception is thrown when you try to use an entity that can not be used for the operation.
+ *
+ * @author Katarina Bulkova
+ */
+public class IllegalEntityException extends RuntimeException {
+
+    /**
+     * Creates new instance of
+     * &lt;code&gt;IllegalEntityException&lt;/code&gt; without detail message.
+     *
+     */
+<span class="nc" id="L15">    public IllegalEntityException() {</span>
+<span class="nc" id="L16">    }</span>
+
+    /**
+     * Constructs an instance of
+     * &lt;code&gt;IllegalEntityException&lt;/code&gt; with the specified detail
+     * message.
+     *
+     * @param msg detail message
+     */
+    public IllegalEntityException(String msg) {
+<span class="nc" id="L26">        super(msg);</span>
+<span class="nc" id="L27">    }</span>
+
+    /**
+     * Constructs an instance of
+     * &lt;code&gt;IllegalEntityException&lt;/code&gt; with the specified detail
+     * message and cause.
+     *
+     * @param msg detail message
+     * @param throwable the cause
+     */
+    public IllegalEntityException(String msg, Throwable throwable) {
+<span class="nc" id="L38">        super(msg, throwable);</span>
+<span class="nc" id="L39">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.eclemma.org/jacoco">JaCoCo</a> 0.7.5.201505241946</span></div></body></html>
