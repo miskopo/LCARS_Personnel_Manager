@@ -1,6 +1,9 @@
 # Star fleet personnel manager
 
-[![pipeline status](https://gitlab.fi.muni.cz/xpolovka/pv168/badges/master/pipeline.svg)](https://gitlab.fi.muni.cz/xpolovka/pv168/commits/master)[![coverage report](https://gitlab.fi.muni.cz/xpolovka/pv168/badges/master/coverage.svg)](https://gitlab.fi.muni.cz/xpolovka/pv168/commits/master)
+[![pipeline status](https://gitlab.fi.muni.cz/xpolovka/pv168/badges/master/pipeline.svg)](https://gitlab.fi.muni.cz/xpolovka/pv168/commits/master)
+[![coverage report](https://gitlab.fi.muni.cz/xpolovka/pv168/badges/master/coverage.svg)](https://gitlab.fi.muni.cz/xpolovka/pv168/commits/master)
+[![maven_version](https://img.shields.io/badge/Maven-4.0.0-yellowgreen.svg)]()
+[![licence](https://img.shields.io/badge/Licence-GNU%2FGPL3-blue.svg)](LICENCE)
 
 __Space, the final frontier.__ :rocket:
 
