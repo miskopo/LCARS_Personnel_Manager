@@ -10,4 +10,5 @@ build:
   script:
     - mvn dependency:resolve --quiet
     - mvn compile package
+    - "cat target/site/jacoco/index.html"
 
