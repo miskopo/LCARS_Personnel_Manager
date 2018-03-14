@@ -38,7 +38,7 @@ public interface CrewmanManager {
      * Updates crewman in the database.
      *
      * @param crewman updated crewman to be stored into the database
-     * @throws IllegalArgumentException when body is null
+     * @throws IllegalArgumentException when crewman is null
      * @throws ServiceFailureException when db operation fails
      * @throws ValidationException when crewman breaks validation rules
      * (name, currentAssignment or rank is null)
