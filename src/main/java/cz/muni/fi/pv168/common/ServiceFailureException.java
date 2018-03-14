@@ -8,19 +8,32 @@ package cz.muni.fi.pv168.common;
 public class ServiceFailureException extends RuntimeException {
 
     /**
-     * Creates new instance of
+     * Creates an instance of
      * <code>IllegalEntityException</code> with detail message.
      *
-     * @param msg
+     * @param msg detail message
      */
     public ServiceFailureException(String msg) {
         super(msg);
     }
 
+    /**
+     * Creates an instance of
+     * <code>IllegalEntityException</code> with detail cause.
+     *
+     * @param cause detail cause
+     */
     public ServiceFailureException(Throwable cause) {
         super(cause);
     }
 
+    /**
+     * Creates an instance of
+     * <code>IllegalEntityException</code> with detail message and cause.
+     *
+     * @param message detail message
+     * @param cause detail cause
+     */
     public ServiceFailureException(String message, Throwable cause) {
         super(message, cause);
     }
