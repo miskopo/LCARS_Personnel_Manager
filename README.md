@@ -19,6 +19,11 @@ _Note: The table above also describes user case diagram._
 
 ''''PLACEHOLDER_FOR_CLASS_DIAGRAM'''
 
+### GUI sample
+Yes, it really is LCARS. :v:
+
+[![GUI sample](./static/lcars_sample.png)]
+
 Team composition:
-- Michal Polovka (xpolovka)
-- Katarina Bulkova (xbulkova)
+- Michal Polovka (@xpolovka)
+- Katarina Bulkova (@xbulkova)
