@@ -1,14 +1,9 @@
-image: maven:3-jdk-8
-
-stages:
-  - build
+image: mvn-pb162:v1.0
 
 build:
-  stage: build
+  script:
+    - mvn clean install -B  -Dcheckstyle.fail=false
+    - "cat target/site/jacoco/index.html"
   tags:
     - shared-fi
-  script:
-    - mvn dependency:resolve --quiet
-    - mvn compile package
-    - "cat target/site/jacoco/index.html"
 
