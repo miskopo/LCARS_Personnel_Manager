@@ -5,7 +5,8 @@
 __Space, the final frontier.__ :rocket:
 
 This application is made for educational purposes.
-Its "disguised" as personnel manager of some Star Fleet HR manager. Thus, it has
+It's "disguised" as personnel manager of some Star fleet HR manager. 
+Thus, it has
 following properties (marked are implemented):
 
 - [ ] Create crewman
