@@ -1,5 +1,7 @@
 **Star fleet personnel manager**
 
+[![pipeline status](https://gitlab.fi.muni.cz/xpolovka/pv168/badges/master/pipeline.svg)](https://gitlab.fi.muni.cz/xpolovka/pv168/commits/master)
+
 __Space, the final frontier.__ :rocket:
 
 This application is made for educational purposes.
