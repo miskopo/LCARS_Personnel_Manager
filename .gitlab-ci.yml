@@ -3,7 +3,7 @@ image: mvn-pb162:v1.0
 build:
   script:
     - mvn clean install -B  -Dcheckstyle.fail=false
-#    - "cat target/site/jacoco/index.html"
+    - "cat target/site/jacoco/index.html"
   tags:
     - shared-fi
 
