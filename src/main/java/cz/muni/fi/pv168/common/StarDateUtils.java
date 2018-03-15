@@ -1,9 +1,6 @@
 package cz.muni.fi.pv168.common;
 
-
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 
 /**
  * @author Michal Polovka
@@ -22,9 +19,5 @@ public class StarDateUtils {
                 dayOfMonth);
         return Double.parseDouble(starDateString);
 
-    }
-
-    public static Date starDateToIsoDate(double starDate){
-        return null;
     }
 }
