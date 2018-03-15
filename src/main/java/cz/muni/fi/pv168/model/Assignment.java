@@ -1,6 +1,6 @@
 package cz.muni.fi.pv168.model;
 
-import cz.muni.fi.pv168.common.StarDate;
+import cz.muni.fi.pv168.common.StarDateUtils;
 
 import java.util.Objects;
 
@@ -10,10 +10,10 @@ import java.util.Objects;
 public class Assignment {
     private Ship ship;
     private Crewman crewman;
-    private StarDate startDate;
-    private StarDate endDate;
+    private StarDateUtils startDate;
+    private StarDateUtils endDate;
 
-    public Assignment(Ship ship, Crewman crewman, StarDate startDate, StarDate endDate) {
+    public Assignment(Ship ship, Crewman crewman, StarDateUtils startDate, StarDateUtils endDate) {
         this.ship = ship;
         this.crewman = crewman;
         this.startDate = startDate;
@@ -36,19 +36,19 @@ public class Assignment {
         this.crewman = crewman;
     }
 
-    public StarDate getStartDate() {
+    public StarDateUtils getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(StarDate startDate) {
+    public void setStartDate(StarDateUtils startDate) {
         this.startDate = startDate;
     }
 
-    public StarDate getEndDate() {
+    public StarDateUtils getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(StarDate endDate) {
+    public void setEndDate(StarDateUtils endDate) {
         this.endDate = endDate;
     }
 
