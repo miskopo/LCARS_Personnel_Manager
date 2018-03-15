@@ -35,4 +35,4 @@ Yes, it really is LCARS. :v:
 
 *Disclaimer:*
 
-_This project is not in any way related to Gene Roddenberry or is product of Star Trek official franchise.__
+_This project is not in any way related to Gene Roddenberry or is product of Star Trek official franchise._
