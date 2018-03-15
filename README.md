@@ -29,10 +29,10 @@ Yes, it really is LCARS. :v:
 
 [![GUI sample](./static/lcars_sample.png)]
 
-Team composition:
+### Team composition:
 - Michal Polovka (@xpolovka)
 - Katarina Bulkova (@xbulkova)
 
 *Disclaimer:*
 
-_This project is not in any way related to Gene Roddenberry or is product of Star Trek official franchise. All images and/or other materials are property of their respective copyright holders._
+_This project is not in any way related to Gene Roddenberry or is product of Star Trek official franchise.__
