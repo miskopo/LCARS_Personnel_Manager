@@ -8,6 +8,7 @@ coverage:
     - shared-fi
 build:
   script:
-    - mvn clean install -B  -Dcheckstyle.fail=false
+    - mvn clean install -Dmaven.test.failure.ignore=true
+      # - mvn clean install -B  -Dcheckstyle.fail=false
   tags:
     - shared-fi
