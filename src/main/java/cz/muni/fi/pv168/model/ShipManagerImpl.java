@@ -21,12 +21,12 @@ public class ShipManagerImpl implements ShipManager {
     }
 
     @Override
-    public void updateCrewman(Ship ship) throws ServiceFailureException, ValidationException, IllegalEntityException {
+    public void updateShip(Ship ship) throws ServiceFailureException, ValidationException, IllegalEntityException {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public void deleteCrewman(Ship ship) throws ServiceFailureException, IllegalEntityException {
+    public void deleteShip(Ship ship) throws ServiceFailureException, IllegalEntityException {
         throw new UnsupportedOperationException();
     }
 

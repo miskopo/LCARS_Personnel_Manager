@@ -24,6 +24,15 @@ public class ShipManagerImplTest {
 
     @Test
     public void createShip(){
+        shipManager.createShip(ship1);
+        shipManager.createShip(ship2);
+        shipManager.createShip(ship3);
+        shipManager.createShip(ship4);
+
+    }
+
+    @Test
+    public void getShip() {
         assert shipManager.getShip(1L).getName().equals("Enterprise");
         assert shipManager.getShip(1L).getDesignation().equals("NYC-72");
         assert shipManager.getShip(1L).getType().equals("Nebula");
@@ -43,22 +52,32 @@ public class ShipManagerImplTest {
         assert shipManager.getShip(4L).getDesignation().equals("NYC-42");
         assert shipManager.getShip(4L).getType().equals("Science");
         assert shipManager.getShip(4L).getWarpCapabilities() == 9.2;
+    }
 
+    @Test(expected = IllegalEntityException.class)
+    public void updateEmptyShip() {
+        shipManager.updateShip(null);
     }
 
     @Test
-    public void getShip() {
+    public void updateShip() {
+        ship1.setDesignation("EnterpriseModified");
+        shipManager.updateShip(ship1);
+        assert shipManager.getShip(ship1.getId()).getName().equals("EnterpriseModified");
+        ship1.setDesignation("Enterprise");
+    }
+
+    @Test(expected = IllegalEntityException.class)
+    public void deleteEmptyShip(){
+        shipManager.deleteShip(null);
     }
 
     @Test
-    public void updateCrewman() {
-    }
-
-    @Test
-    public void deleteCrewman() {
+    public void deleteShip() {
     }
 
     @Test
     public void findAllShips() {
+        assertArrayEquals(shipManager.findAllShips().toArray(), new Ship[]{ship1, ship2, ship3, ship4});
     }
 }

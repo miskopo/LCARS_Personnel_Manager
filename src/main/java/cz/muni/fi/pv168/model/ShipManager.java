@@ -37,14 +37,14 @@ public interface ShipManager {
     /**
      * Updates ship in the database.
      *
-     * @param ship updated crewman to be stored into the database
+     * @param ship updated ship to be stored into the database
      * @throws IllegalArgumentException when ship is null
      * @throws ServiceFailureException when db operation fails
      * @throws ValidationException when ship breaks validation rules
      * (name, designation, type or warpCapability is null)
      * @throws IllegalEntityException when ship has null id or does not exist in the databse
      */
-    void updateCrewman(Ship ship) throws ServiceFailureException, ValidationException, IllegalEntityException;
+    void updateShip(Ship ship) throws ServiceFailureException, ValidationException, IllegalEntityException;
 
     /**
      * Deletes ship from the database
@@ -54,7 +54,7 @@ public interface ShipManager {
      * @throws ServiceFailureException when db operation fails
      * @throws IllegalEntityException when ship has null id or does not exist in the database
      */
-    void deleteCrewman(Ship ship) throws ServiceFailureException, IllegalEntityException;
+    void deleteShip(Ship ship) throws ServiceFailureException, IllegalEntityException;
 
     /**
      * Returns list of all ships in the database
