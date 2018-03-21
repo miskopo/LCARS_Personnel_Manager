@@ -7,13 +7,15 @@ import java.util.Objects;
 /**
  * @author Katarina Bulkova
  */
-public class    Assignment {
+public class Assignment {
+    private long id;
     private Ship ship;
     private Crewman crewman;
     private StarDateUtils startDate;
     private StarDateUtils endDate;
 
-    public Assignment(Ship ship, Crewman crewman, StarDateUtils startDate, StarDateUtils endDate) {
+    public Assignment(long id, Ship ship, Crewman crewman, StarDateUtils startDate, StarDateUtils endDate) {
+        this.id = id;
         this.ship = ship;
         this.crewman = crewman;
         this.startDate = startDate;

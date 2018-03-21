@@ -33,26 +33,11 @@ public class ShipManagerImplTest {
 
     @Test
     public void getShip() {
-        assert shipManager.getShip(1L).getName().equals("Enterprise");
-        assert shipManager.getShip(1L).getDesignation().equals("NYC-72");
-        assert shipManager.getShip(1L).getType().equals("Nebula");
-        assert shipManager.getShip(1L).getWarpCapabilities() == 9.7;
-
-        assert shipManager.getShip(2L).getName().equals("Voyager");
-        assert shipManager.getShip(2L).getDesignation().equals("NYC-94");
-        assert shipManager.getShip(2L).getType().equals("Warship");
-        assert shipManager.getShip(2L).getWarpCapabilities() == 8.4;
-
-        assert shipManager.getShip(3L).getName().equals("Pegasus");
-        assert shipManager.getShip(3L).getDesignation().equals("NYC-12");
-        assert shipManager.getShip(3L).getType().equals("Science");
-        assert shipManager.getShip(3L).getWarpCapabilities() == 6.5;
-
-        assert shipManager.getShip(4L).getName().equals("Discovery");
-        assert shipManager.getShip(4L).getDesignation().equals("NYC-42");
-        assert shipManager.getShip(4L).getType().equals("Science");
-        assert shipManager.getShip(4L).getWarpCapabilities() == 9.2;
-    }
+        assertTrue(shipManager.getShip(1L).equals(ship1));
+        assertTrue(shipManager.getShip(2L).equals(ship2));
+        assertTrue(shipManager.getShip(3L).equals(ship3));
+        assertTrue(shipManager.getShip(4L).equals(ship2));
+     }
 
     @Test(expected = IllegalEntityException.class)
     public void updateEmptyShip() {
@@ -63,7 +48,7 @@ public class ShipManagerImplTest {
     public void updateShip() {
         ship1.setDesignation("EnterpriseModified");
         shipManager.updateShip(ship1);
-        assert shipManager.getShip(ship1.getId()).getName().equals("EnterpriseModified");
+        assertTrue(shipManager.getShip(ship1.getId()).getName().equals("EnterpriseModified"));
         ship1.setDesignation("Enterprise");
     }
 

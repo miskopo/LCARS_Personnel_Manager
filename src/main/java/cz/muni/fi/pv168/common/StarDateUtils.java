@@ -6,6 +6,19 @@ import java.time.LocalDate;
  * @author Michal Polovka
  */
 public class StarDateUtils {
+    private double starDate;
+
+    public StarDateUtils(double starDate) {
+        this.starDate = starDate;
+    }
+
+    public double getStarDate() {
+        return starDate;
+    }
+
+    public void setStarDate(double starDate) {
+        this.starDate = starDate;
+    }
 
     /**
      * Helper method to convert standard ISO date to stardate as seen in Star Trek: The Next Generation series.
