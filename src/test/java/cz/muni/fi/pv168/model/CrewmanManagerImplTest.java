@@ -15,6 +15,7 @@ public class CrewmanManagerImplTest {
     Crewman crewman2 = new Crewman(2L, "Anakin Skywalker", Rank.COMMANDER);
     Crewman crewman3 = new Crewman(3L, "Doctor Who", Rank.LIEUTENANT);
     Crewman crewman4 = new Crewman(4L, "Gaius Julius Caesar", Rank.ENSIGN);
+    Crewman faultyCrewman = new Crewman(4L, "Nasty Dalek", Rank.CAPTAIN);
 
     @Test(expected = IllegalEntityException.class)
     public void createEmptyCrewman() {
@@ -28,6 +29,12 @@ public class CrewmanManagerImplTest {
         crewmanManager.createCrewman(crewman3);
         crewmanManager.createCrewman(crewman4);
     }
+
+    @Test(expected = IllegalEntityException.class)
+    public void createFaultyCrewman() {
+        crewmanManager.createCrewman(faultyCrewman);
+    }
+
 
     @Test
     public void getCrewman() {
@@ -48,6 +55,8 @@ public class CrewmanManagerImplTest {
 
     @Test
     public void deleteCrewman() {
+        crewmanManager.deleteCrewman(crewman1);
+        assertTrue(crewmanManager.getCrewman(1L) == null);
     }
 
     @Test

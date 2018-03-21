@@ -22,9 +22,10 @@ public class AssignmentManagerImplTest {
     StarDateUtils beginning = new StarDateUtils(12345.4);
     StarDateUtils end = new StarDateUtils(12345.5);
     Assignment assignment1 = new Assignment(1L, ship1, crewman1, beginning, end);
-    Assignment assignment2 = new Assignment(2L, ship1, crewman2, beginning, end);
-    Assignment assignment3 = new Assignment(3L, ship1, crewman3, beginning, end);
-    Assignment assignment4 = new Assignment(4L, ship1, crewman4, beginning, end);
+    Assignment assignment2 = new Assignment(2L, ship2, crewman2, beginning, end);
+    Assignment assignment3 = new Assignment(3L, ship3, crewman3, beginning, end);
+    Assignment assignment4 = new Assignment(4L, ship4, crewman4, beginning, end);
+    Assignment faultyAssignment = new Assignment(4L, ship1, crewman2, beginning, end);
 
     @Test(expected = IllegalEntityException.class)
     public void createEmptyAssignment() {
@@ -37,6 +38,11 @@ public class AssignmentManagerImplTest {
         assignmentManager.createAssignment(assignment2);
         assignmentManager.createAssignment(assignment3);
         assignmentManager.createAssignment(assignment4);
+    }
+
+    @Test(expected = IllegalEntityException.class)
+    public void createFaultyAssignment() {
+        assignmentManager.createAssignment(faultyAssignment);
     }
 
     @Test

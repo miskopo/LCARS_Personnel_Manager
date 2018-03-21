@@ -8,5 +8,4 @@ public enum Rank {
     COMMANDER,
     LIEUTENANT,
     ENSIGN
-
 }
