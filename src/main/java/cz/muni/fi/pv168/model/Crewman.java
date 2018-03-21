@@ -1,5 +1,7 @@
 package cz.muni.fi.pv168.model;
 
+import cz.muni.fi.pv168.common.Rank;
+
 import java.util.Objects;
 
 /**
@@ -8,16 +10,14 @@ import java.util.Objects;
 public class Crewman {
     private Long id;
     private String name;
-    private String currentAssignment;
-    private String rank;
+    private Rank rank;
 
     public Crewman() {
     }
 
-    public Crewman(Long id, String name, String currentAssignment, String rank) {
+    public Crewman(Long id, String name, Rank rank) {
         this.id = id;
         this.name = name;
-        this.currentAssignment = currentAssignment;
         this.rank = rank;
     }
 
@@ -37,19 +37,12 @@ public class Crewman {
         this.name = name;
     }
 
-    public String getCurrentAssignment() {
-        return currentAssignment;
-    }
 
-    public void setCurrentAssignment(String currentAssignment) {
-        this.currentAssignment = currentAssignment;
-    }
-
-    public String getRank() {
+    public Rank getRank() {
         return rank;
     }
 
-    public void setRank(String rank) {
+    public void setRank(Rank rank) {
         this.rank = rank;
     }
 
@@ -58,7 +51,6 @@ public class Crewman {
         return "Crewman{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", currentAssignment='" + currentAssignment + '\'' +
                 ", rank='" + rank + '\'' +
                 '}';
     }

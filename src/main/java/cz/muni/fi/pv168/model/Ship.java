@@ -1,5 +1,7 @@
 package cz.muni.fi.pv168.model;
 
+import cz.muni.fi.pv168.common.ShipType;
+
 import java.util.Objects;
 
 /**
@@ -9,13 +11,13 @@ public class Ship {
     private Long id;
     private String name;
     private String designation;
-    private String type;
+    private ShipType type;
     private double warpCapabilities;
 
     public Ship() {
     }
 
-    public Ship(Long id, String name, String designation, String type, double warpCapabilities) {
+    public Ship(Long id, String name, String designation, ShipType type, double warpCapabilities) {
         this.id = id;
         this.name = name;
         this.designation = designation;
@@ -47,11 +49,11 @@ public class Ship {
         this.designation = designation;
     }
 
-    public String getType() {
+    public ShipType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(ShipType type) {
         this.type = type;
     }
 

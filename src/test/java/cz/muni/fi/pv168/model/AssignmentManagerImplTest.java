@@ -45,11 +45,13 @@ public class AssignmentManagerImplTest {
         assertTrue(assignmentManager.getAssignmentById(2L).equals(assignment2));
         assertTrue(assignmentManager.getAssignmentById(3L).equals(assignment3));
         assertTrue(assignmentManager.getAssignmentById(4L).equals(assignment4));
+        assertFalse(assignmentManager.getAssignmentById(4L).equals(assignment1));
     }
 
     @Test
     public void findAllAssignments() {
-        assertArrayEquals(assignmentManager.findAllAssignments().toArray(), new Ship[]{ship1, ship2, ship3, ship4});
+        assertArrayEquals(assignmentManager.findAllAssignments().toArray(), new Assignment[]{assignment1,
+                assignment2, assignment3, assignment4});
 
     }
 
@@ -71,6 +73,7 @@ public class AssignmentManagerImplTest {
         assertTrue(assignmentManager.findAssignmentByShip(ship2).equals(assignment2));
         assertTrue(assignmentManager.findAssignmentByShip(ship3).equals(assignment3));
         assertTrue(assignmentManager.findAssignmentByShip(ship4).equals(assignment4));
+        assertFalse(assignmentManager.findAssignmentByShip(ship4).equals(assignment1));
     }
 
     @Test
@@ -79,5 +82,6 @@ public class AssignmentManagerImplTest {
         assertTrue(assignmentManager.findAssignmentByCrewman(crewman2).equals(assignment2));
         assertTrue(assignmentManager.findAssignmentByCrewman(crewman3).equals(assignment3));
         assertTrue(assignmentManager.findAssignmentByCrewman(crewman4).equals(assignment4));
+        assertFalse(assignmentManager.findAssignmentByCrewman(crewman4).equals(assignment1));
     }
 }
