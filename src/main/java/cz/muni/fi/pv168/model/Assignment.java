@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * @author Katarina Bulkova
  */
-public class Assignment {
+public class    Assignment {
     private Ship ship;
     private Crewman crewman;
     private StarDateUtils startDate;
