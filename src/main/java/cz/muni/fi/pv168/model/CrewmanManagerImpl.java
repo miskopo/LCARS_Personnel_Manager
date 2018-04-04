@@ -12,6 +12,10 @@ import java.util.List;
 public class CrewmanManagerImpl implements CrewmanManager {
     @Override
     public void createCrewman(Crewman crewman) throws ServiceFailureException, ValidationException, IllegalEntityException {
+        if (crewman == null){
+            throw new IllegalEntityException("Provided crewman is null");
+        }
+        //TODO: Add db check for unique ID
         throw new UnsupportedOperationException();
     }
 

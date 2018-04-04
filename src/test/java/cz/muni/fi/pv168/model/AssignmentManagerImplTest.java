@@ -41,11 +41,11 @@ public class AssignmentManagerImplTest {
 
     @Test
     public void getAssignmentById() {
-        assertTrue(assignmentManager.getAssignmentById(1L).equals(assignment1));
-        assertTrue(assignmentManager.getAssignmentById(2L).equals(assignment2));
-        assertTrue(assignmentManager.getAssignmentById(3L).equals(assignment3));
-        assertTrue(assignmentManager.getAssignmentById(4L).equals(assignment4));
-        assertFalse(assignmentManager.getAssignmentById(4L).equals(assignment1));
+        assertEquals(assignmentManager.getAssignmentById(1L), assignment1);
+        assertEquals(assignmentManager.getAssignmentById(2L), assignment2);
+        assertEquals(assignmentManager.getAssignmentById(3L), assignment3);
+        assertEquals(assignmentManager.getAssignmentById(4L), assignment4);
+        assertNotEquals(assignmentManager.getAssignmentById(4L), assignment1);
     }
 
     @Test
@@ -59,7 +59,7 @@ public class AssignmentManagerImplTest {
     public void updateAssignment() {
         assignment1.setCrewman(crewman2);
         assignmentManager.updateAssignment(assignment1);
-        assertTrue(assignmentManager.getAssignmentById(1L).getCrewman().equals(crewman2));
+        assertEquals(assignmentManager.getAssignmentById(1L).getCrewman(), crewman2);
         assignment1.setCrewman(crewman1);
     }
 
@@ -69,19 +69,19 @@ public class AssignmentManagerImplTest {
 
     @Test
     public void findAssignmentByShip() {
-        assertTrue(assignmentManager.findAssignmentByShip(ship1).equals(assignment1));
-        assertTrue(assignmentManager.findAssignmentByShip(ship2).equals(assignment2));
-        assertTrue(assignmentManager.findAssignmentByShip(ship3).equals(assignment3));
-        assertTrue(assignmentManager.findAssignmentByShip(ship4).equals(assignment4));
-        assertFalse(assignmentManager.findAssignmentByShip(ship4).equals(assignment1));
+        assertEquals(assignmentManager.findAssignmentByShip(ship1), assignment1);
+        assertEquals(assignmentManager.findAssignmentByShip(ship2), assignment2);
+        assertEquals(assignmentManager.findAssignmentByShip(ship3), assignment3);
+        assertEquals(assignmentManager.findAssignmentByShip(ship4), assignment4);
+        assertNotEquals(assignmentManager.findAssignmentByShip(ship4), assignment1);
     }
 
     @Test
     public void findAssignmentByCrewman() {
-        assertTrue(assignmentManager.findAssignmentByCrewman(crewman1).equals(assignment1));
-        assertTrue(assignmentManager.findAssignmentByCrewman(crewman2).equals(assignment2));
-        assertTrue(assignmentManager.findAssignmentByCrewman(crewman3).equals(assignment3));
-        assertTrue(assignmentManager.findAssignmentByCrewman(crewman4).equals(assignment4));
-        assertFalse(assignmentManager.findAssignmentByCrewman(crewman4).equals(assignment1));
+        assertEquals(assignmentManager.findAssignmentByCrewman(crewman1), assignment1);
+        assertEquals(assignmentManager.findAssignmentByCrewman(crewman2), assignment2);
+        assertEquals(assignmentManager.findAssignmentByCrewman(crewman3), assignment3);
+        assertEquals(assignmentManager.findAssignmentByCrewman(crewman4), assignment4);
+        assertNotEquals(assignmentManager.findAssignmentByCrewman(crewman4), assignment1);
     }
 }

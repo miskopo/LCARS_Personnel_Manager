@@ -31,18 +31,18 @@ public class CrewmanManagerImplTest {
 
     @Test
     public void getCrewman() {
-        assertTrue(crewmanManager.getCrewman(1L).equals(crewman1));
-        assertTrue(crewmanManager.getCrewman(2L).equals(crewman2));
-        assertTrue(crewmanManager.getCrewman(3L).equals(crewman3));
-        assertTrue(crewmanManager.getCrewman(4L).equals(crewman4));
-        assertFalse(crewmanManager.getCrewman(4L).equals(crewman1));
+        assertEquals(crewmanManager.getCrewman(1L), crewman1);
+        assertEquals(crewmanManager.getCrewman(2L), crewman2);
+        assertEquals(crewmanManager.getCrewman(3L), crewman3);
+        assertEquals(crewmanManager.getCrewman(4L), crewman4);
+        assertNotEquals(crewmanManager.getCrewman(4L), crewman1);
     }
 
     @Test
     public void updateCrewman() {
         crewman1.setName("Arthur Dent_modified");
         crewmanManager.updateCrewman(crewman1);
-        assertTrue(crewmanManager.getCrewman(1L).getName().equals("Arthur Dent_modified"));
+        assertEquals("Arthur Dent_modified", crewmanManager.getCrewman(1L).getName());
         crewman1.setName("Arthur Dent");
     }
 

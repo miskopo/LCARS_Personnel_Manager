@@ -34,11 +34,11 @@ public class ShipManagerImplTest {
 
     @Test
     public void getShip() {
-        assertTrue(shipManager.getShip(1L).equals(ship1));
-        assertTrue(shipManager.getShip(2L).equals(ship2));
-        assertTrue(shipManager.getShip(3L).equals(ship3));
-        assertTrue(shipManager.getShip(4L).equals(ship4));
-        assertFalse(shipManager.getShip(4L).equals(ship1));
+        assertEquals(shipManager.getShip(1L), ship1);
+        assertEquals(shipManager.getShip(2L), ship2);
+        assertEquals(shipManager.getShip(3L), ship3);
+        assertEquals(shipManager.getShip(4L), ship4);
+        assertNotEquals(shipManager.getShip(4L), ship1);
      }
 
     @Test(expected = IllegalEntityException.class)
@@ -50,7 +50,7 @@ public class ShipManagerImplTest {
     public void updateShip() {
         ship1.setDesignation("EnterpriseModified");
         shipManager.updateShip(ship1);
-        assertTrue(shipManager.getShip(ship1.getId()).getName().equals("EnterpriseModified"));
+        assertEquals("EnterpriseModified", shipManager.getShip(ship1.getId()).getName());
         ship1.setDesignation("Enterprise");
     }
 
