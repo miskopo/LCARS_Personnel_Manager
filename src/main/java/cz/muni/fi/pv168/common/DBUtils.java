@@ -60,12 +60,4 @@ public class DBUtils {
             }
         }
     }
-
-    /**
-     *
-     */
-    public static void createDatabase(DataSource dataSource){
-
-    }
-
 }

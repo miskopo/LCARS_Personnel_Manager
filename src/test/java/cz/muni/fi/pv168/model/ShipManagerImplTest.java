@@ -2,8 +2,12 @@ package cz.muni.fi.pv168.model;
 
 import cz.muni.fi.pv168.common.IllegalEntityException;
 import cz.muni.fi.pv168.common.ShipType;
+import org.apache.derby.jdbc.EmbeddedDataSource;
 import org.junit.Before;
 import org.junit.Test;
+
+import javax.sql.DataSource;
+import java.sql.SQLException;
 
 import static org.junit.Assert.*;
 
@@ -17,6 +21,18 @@ public class ShipManagerImplTest {
     Ship ship4 = new Ship(4L, "Discovery", "NYC-42", ShipType.SCIENCE, 9.2);
     Ship faultyShip = new Ship(4L, "Sparrow", "RSS-83", ShipType.SHUTTLE, 1.0);
     ShipManager shipManager = new ShipManagerImpl();
+
+    private DataSource dataSource;
+
+
+    private static DataSource prepareDataSource() throws SQLException {
+        EmbeddedDataSource ds = new EmbeddedDataSource();
+        // we will use in memory database
+        ds.setDatabaseName("memory:gravemgr-test");
+        // database is created automatically if it does not exist yet
+        ds.setCreateDatabase("create");
+        return ds;
+    }
 
 
     @Test(expected = IllegalEntityException.class)
