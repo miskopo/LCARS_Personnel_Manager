@@ -25,10 +25,6 @@ public class ShipManagerImpl implements ShipManager {
         this.dataSource = dataSource;
     }
 
-    @SuppressWarnings("WeakerAccess")
-    public ShipManagerImpl() {
-    }
-
     @Override
     public void createShip(Ship ship) throws ServiceFailureException, ValidationException, IllegalEntityException {
         validate(ship);
