@@ -1,8 +1,16 @@
 package cz.muni.fi.pv168.model;
 
+import cz.muni.fi.pv168.common.DBUtils;
 import cz.muni.fi.pv168.common.IllegalEntityException;
 import cz.muni.fi.pv168.common.Rank;
+import org.apache.derby.jdbc.EmbeddedDataSource;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
+
+import javax.sql.DataSource;
+import java.io.IOException;
+import java.sql.SQLException;
 
 import static org.junit.Assert.*;
 
@@ -10,12 +18,35 @@ import static org.junit.Assert.*;
  * @author Michal Polovka
  */
 public class CrewmanManagerImplTest {
-    CrewmanManager crewmanManager = new CrewmanManagerImpl();
     Crewman crewman1 = new Crewman(1L, "Arthur Dent", Rank.CAPTAIN);
     Crewman crewman2 = new Crewman(2L, "Anakin Skywalker", Rank.COMMANDER);
     Crewman crewman3 = new Crewman(3L, "Doctor Who", Rank.LIEUTENANT);
     Crewman crewman4 = new Crewman(4L, "Gaius Julius Caesar", Rank.ENSIGN);
     Crewman faultyCrewman = new Crewman(4L, "Nasty Dalek", Rank.CAPTAIN);
+
+    private CrewmanManagerImpl crewmanManager;
+    private DataSource ds;
+
+
+    private static DataSource prepareDataSource() throws SQLException {
+        EmbeddedDataSource ds = new EmbeddedDataSource();
+        ds.setDatabaseName("memory:shipmanager-test");
+        ds.setCreateDatabase("create");
+        return ds;
+    }
+
+
+    @Before
+    public void setUp() throws SQLException, IOException {
+        ds = prepareDataSource();
+        DBUtils.executeSqlScript(ds, ClassLoader.class.getResourceAsStream("/createTables.sql"));
+        crewmanManager = new CrewmanManagerImpl(ds);
+    }
+
+    @After
+    public void tearDown() throws SQLException, IOException {
+        DBUtils.executeSqlScript(ds, ClassLoader.class.getResourceAsStream("/dropTables.sql"));
+    }
 
     @Test(expected = IllegalEntityException.class)
     public void createEmptyCrewman() {
