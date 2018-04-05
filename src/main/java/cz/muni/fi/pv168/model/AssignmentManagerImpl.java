@@ -112,13 +112,14 @@ public class AssignmentManagerImpl implements AssignmentManager {
     }
 
     static private Assignment rowToAssignment(ResultSet rs) throws SQLException {
-        Assignment assignment = new Assignment();
-        assignment.setId(rs.getLong("id"));
-        assignment.setShip(rs.getString("ship"));
-        assignment.setCrewman(rs.getString("gender").t);
-        assignment.setStartDate(StarDateUtils.dateToStarDate((rs.getDate("born"))));
-        assignment.setEndDate(toLocalDate(rs.getDate("died").));
-        return assignment;
+//        Assignment assignment = new Assignment();
+//        assignment.setId(rs.getLong("id"));
+//        assignment.setShip(rs.getString("ship"));
+//        assignment.setCrewman(rs.getString("gender").t);
+//        assignment.setStartDate(StarDateUtils.dateToStarDate((rs.getDate("born"))));
+//        assignment.setEndDate(toLocalDate(rs.getDate("died").));
+//        return assignment;
+        return null;
     }
 
     private void validate(Assignment assignment) {

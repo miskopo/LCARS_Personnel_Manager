@@ -9,7 +9,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import javax.sql.DataSource;
-import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.sql.SQLException;
 
@@ -40,13 +39,13 @@ public class ShipManagerImplTest {
     @Before
     public void setUp() throws SQLException, IOException {
         ds = prepareDataSource();
-        DBUtils.executeSqlScript(ds, DBUtils.class.getResourceAsStream("createTables.sql"));
+        DBUtils.executeSqlScript(ds, ClassLoader.class.getResourceAsStream("/createTables.sql"));
         shipManager = new ShipManagerImpl(ds);
     }
 
     @After
     public void tearDown() throws SQLException, IOException {
-        DBUtils.executeSqlScript(ds, DBUtils.class.getResourceAsStream("dropTables.sql"));
+        DBUtils.executeSqlScript(ds, ClassLoader.class.getResourceAsStream("/dropTables.sql"));
     }
 
     @Test(expected = IllegalEntityException.class)
