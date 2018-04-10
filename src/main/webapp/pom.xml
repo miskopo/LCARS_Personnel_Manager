@@ -7,18 +7,14 @@
     <!-- inherit groupId, version, plugins, properties and many other things from the parent project -->
     <parent>
         <groupId>cz.muni.fi</groupId>
-        <artifactId>books-app</artifactId>
-        <version>1.3-SNAPSHOT</version>
+        <artifactId>semestralproject</artifactId>
+        <version>1.0-SNAPSHOT</version>
     </parent>
 
     <!-- this module identification -->
-    <artifactId>semestralproject</artifactId>
+    <artifactId>semestralproject_web</artifactId>
     <name>Star Fleet personnel web interface</name>
     <packaging>war</packaging>
-
-    <properties>
-        <netbeans.hint.deploy.server>Tomcat</netbeans.hint.deploy.server>
-    </properties>
 
     <build>
         <!-- what to do when only "mvn" is run -->
@@ -53,7 +49,7 @@
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-api</artifactId>
-            <version>${tomcat.version}</version>
+            <version>9.0.7</version>
             <scope>provided</scope>
         </dependency>
 
@@ -61,13 +57,13 @@
         <dependency>
             <groupId>org.apache.taglibs</groupId>
             <artifactId>taglibs-standard-spec</artifactId>
-            <version>${taglibs-standard.version}</version>
+            <version>1.2.5</version>
         </dependency>
         <!-- JSTL implementation -->
         <dependency>
             <groupId>org.apache.taglibs</groupId>
             <artifactId>taglibs-standard-impl</artifactId>
-            <version>${taglibs-standard.version}</version>
+            <version>1.2.5</version>
         </dependency>
     </dependencies>
 </project>
