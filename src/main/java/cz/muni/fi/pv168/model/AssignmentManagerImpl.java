@@ -1,5 +1,6 @@
 package cz.muni.fi.pv168.model;
 
+import cz.muni.fi.pv168.common.DBUtils;
 import cz.muni.fi.pv168.common.IllegalEntityException;
 import cz.muni.fi.pv168.common.ServiceFailureException;
 import cz.muni.fi.pv168.common.StarDateUtils;
@@ -10,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -32,11 +34,15 @@ public class AssignmentManagerImpl implements AssignmentManager {
         validate(assignment);
         try (Connection conn = dataSource.getConnection();
              PreparedStatement st = conn.prepareStatement(
-                     "INSERT INTO Assignment (Ship, Crewman, StartDate, EndDate) VALUES (?, ?, ?, ?)")) {
-            st.setLong(1, assignment.getCrewmanId());
-            st.setLong(2, assignment.getShipId());
+                     "INSERT INTO Assignment (Ship, Crewman, StartDate, EndDate) VALUES (?,?,?,?)", Statement
+                .RETURN_GENERATED_KEYS)) {
+            st.setLong(1, assignment.getShipId());
+            st.setLong(2, assignment.getCrewmanId());
             st.setDate(3, java.sql.Date.valueOf(assignment.getStartDate()));
             st.setDate(4, java.sql.Date.valueOf(assignment.getEndDate()));
+
+            st.executeUpdate();
+            assignment.setId(DBUtils.getId(st.getGeneratedKeys()));
         } catch (SQLException ex) {
             throw new ServiceFailureException("Error when inserting assignment to db.", ex);
         }
@@ -46,20 +52,18 @@ public class AssignmentManagerImpl implements AssignmentManager {
     @Override
     public Assignment getAssignmentById(Long id) throws ServiceFailureException {
         if (id == null) throw new IllegalArgumentException("ID is null.");
-
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement st = conn.prepareStatement("SELECT id, ship, crewman, startdate, enddate FROM " +
-                     "Assignment " +
-                     "WHERE " +
-                     "id = " +
-                     "?")) {
+             PreparedStatement st = conn.prepareStatement("SELECT id, ship, crewman, startDate, endDate FROM " +
+                     "ASSIGNMENT " +
+                     "WHERE id = ?")) {
             st.setLong(1, id);
             try (ResultSet rs = st.executeQuery()) {
                 if (rs.next()) {
                     return rowToAssignment(rs);
-                } else {
+                }else {
                     return null;
                 }
+//                return (rs.next()) ? rowToAssignment(rs) : null;
             }
         } catch (SQLException ex) {
             throw new ServiceFailureException("Error when getting assignment with id = " + id + " from DB.", ex);
@@ -153,7 +157,7 @@ public class AssignmentManagerImpl implements AssignmentManager {
 
     private void validate(Assignment assignment) {
         if (assignment == null) throw new IllegalEntityException("Assignment is null.");
-        if (assignment.getId() < 0) throw new IllegalEntityException("Assignment id is not valid");
+        if (assignment.getId() < 0) throw new IllegalEntityException("Assignment id is invalid");
         if (assignment.getShipId() < 0) throw new ValidationException("Ship ID is invalid.");
         if (assignment.getStartDate() == null) throw new ValidationException("Start date is null.");
         if (assignment.getEndDate() == null) throw new ValidationException("End date is null.");

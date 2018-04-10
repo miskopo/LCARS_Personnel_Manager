@@ -25,7 +25,7 @@ public class AssignmentManagerImplTest {
     private Assignment assignment2 = new Assignment(2L, 2L, 2L, beginning, end);
     private Assignment assignment3 = new Assignment(3L, 3L, 3L, beginning, end);
     private Assignment assignment4 = new Assignment(4L, 4L, 4L, beginning, end);
-    private Assignment faultyAssignment = new Assignment(4L, 5L, 5L, beginning, end);
+//    private Assignment faultyAssignment = new Assignment(4L, 5L, 5L, beginning, end);
 
     private AssignmentManagerImpl assignmentManager;
     private DataSource ds;
@@ -44,6 +44,10 @@ public class AssignmentManagerImplTest {
         ds = prepareDataSource();
         DBUtils.executeSqlScript(ds, ClassLoader.class.getResourceAsStream("/createTables.sql"));
         assignmentManager = new AssignmentManagerImpl(ds);
+        assignmentManager.createAssignment(assignment1);
+        assignmentManager.createAssignment(assignment2);
+        assignmentManager.createAssignment(assignment3);
+        assignmentManager.createAssignment(assignment4);
     }
 
     @After
@@ -64,18 +68,13 @@ public class AssignmentManagerImplTest {
         assignmentManager.createAssignment(assignment4);
     }
 
-//    @Test(expected = IllegalEntityException.class)
-//    public void createFaultyAssignment() {
-//        assignmentManager.createAssignment(faultyAssignment);
-//    }
-
     @Test
     public void getAssignmentById() {
-        assertEquals(assignmentManager.getAssignmentById(1L), assignment1);
-        assertEquals(assignmentManager.getAssignmentById(2L), assignment2);
-        assertEquals(assignmentManager.getAssignmentById(3L), assignment3);
-        assertEquals(assignmentManager.getAssignmentById(4L), assignment4);
-        assertNotEquals(assignmentManager.getAssignmentById(4L), assignment1);
+        assertEquals(assignmentManager.getAssignmentById(assignment1.getId()), assignment1);
+        assertEquals(assignmentManager.getAssignmentById(assignment2.getId()), assignment2);
+        assertEquals(assignmentManager.getAssignmentById(assignment3.getId()), assignment3);
+        assertEquals(assignmentManager.getAssignmentById(assignment4.getId()), assignment4);
+        assertNotEquals(assignmentManager.getAssignmentById(assignment4.getId()), assignment1);
     }
 
     @Test
@@ -95,15 +94,16 @@ public class AssignmentManagerImplTest {
 
     @Test
     public void deleteAssignment() {
+
     }
 
     @Test
     public void findAssignmentByShip() {
-        assertEquals(assignmentManager.findAssignmentByShip(1L), assignment1);
-        assertEquals(assignmentManager.findAssignmentByShip(2L), assignment2);
-        assertEquals(assignmentManager.findAssignmentByShip(3L), assignment3);
-        assertEquals(assignmentManager.findAssignmentByShip(4L), assignment4);
-        assertNotEquals(assignmentManager.findAssignmentByShip(4L), assignment1);
+        assertEquals(assignmentManager.findAssignmentByShip(assignment1.getShipId()), assignment1);
+        assertEquals(assignmentManager.findAssignmentByShip(assignment2.getShipId()), assignment2);
+        assertEquals(assignmentManager.findAssignmentByShip(assignment3.getShipId()), assignment3);
+        assertEquals(assignmentManager.findAssignmentByShip(assignment4.getShipId()), assignment4);
+        assertNotEquals(assignmentManager.findAssignmentByShip(assignment4.getShipId()), assignment1);
     }
 
     @Test

@@ -69,8 +69,9 @@ public class Assignment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Assignment that = (Assignment) o;
-        return Objects.equals(shipId, that.shipId) &&
-                Objects.equals(crewmanId, that.crewmanId) &&
+        return id == that.id &&
+                shipId == that.shipId &&
+                crewmanId == that.crewmanId &&
                 Objects.equals(startDate, that.startDate) &&
                 Objects.equals(endDate, that.endDate);
     }
