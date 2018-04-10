@@ -28,8 +28,6 @@ public class ShipManagerImpl implements ShipManager {
     @Override
     public void createShip(Ship ship) throws ServiceFailureException, ValidationException, IllegalEntityException {
         validate(ship);
-        if (ship.getId() != null) throw new IllegalEntityException("Ship id is already set");
-
         try (Connection connection = dataSource.getConnection();
              PreparedStatement st = connection.prepareStatement(
                      "INSERT INTO Ship (name, designation,type,warp) VALUES (?,?,?,?)",

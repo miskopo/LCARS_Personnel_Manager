@@ -2,6 +2,8 @@ package cz.muni.fi.pv168.model;
 
 import cz.muni.fi.pv168.common.DBUtils;
 import cz.muni.fi.pv168.common.IllegalEntityException;
+import cz.muni.fi.pv168.common.Rank;
+import cz.muni.fi.pv168.common.ShipType;
 import cz.muni.fi.pv168.common.StarDateUtils;
 import org.apache.derby.jdbc.EmbeddedDataSource;
 import org.junit.After;
@@ -21,13 +23,25 @@ import static org.junit.Assert.*;
 public class AssignmentManagerImplTest {
     private LocalDate beginning = LocalDate.of(2018, 4, 4);
     private LocalDate end = LocalDate.of(1970, 1, 1);
-    private Assignment assignment1 = new Assignment(1L, 1L, 1L, beginning, end);
-    private Assignment assignment2 = new Assignment(2L, 2L, 2L, beginning, end);
-    private Assignment assignment3 = new Assignment(3L, 3L, 3L, beginning, end);
-    private Assignment assignment4 = new Assignment(4L, 4L, 4L, beginning, end);
+    Crewman crewman1 = new Crewman(1L, "Arthur Dent", Rank.CAPTAIN);
+    Crewman crewman2 = new Crewman(2L, "Anakin Skywalker", Rank.COMMANDER);
+    Crewman crewman3 = new Crewman(3L, "Doctor Who", Rank.LIEUTENANT);
+    Crewman crewman4 = new Crewman(4L, "Gaius Julius Caesar", Rank.ENSIGN);
+
+    Ship ship1 = new Ship(1L, "Enterprise", "NYC-72", ShipType.NEBULA, 9.7);
+    Ship ship2 = new Ship(2L, "Voyager", "NYC-94", ShipType.WARSHIP, 8.4);
+    Ship ship3 = new Ship(3L, "Pegasus", "NYC-12", ShipType.TRANSPORT, 6.5);
+    Ship ship4 = new Ship(4L, "Discovery", "NYC-42", ShipType.SCIENCE, 9.2);
+
+    private Assignment assignment1 = new Assignment(crewman1.getId(), ship1.getId(), 1L, beginning, end);
+    private Assignment assignment2 = new Assignment(crewman2.getId(), ship2.getId(), 2L, beginning, end);
+    private Assignment assignment3 = new Assignment(crewman3.getId(), ship3.getId(), 3L, beginning, end);
+    private Assignment assignment4 = new Assignment(crewman4.getId(), ship4.getId(), 4L, beginning, end);
 //    private Assignment faultyAssignment = new Assignment(4L, 5L, 5L, beginning, end);
 
     private AssignmentManagerImpl assignmentManager;
+    private CrewmanManagerImpl crewmanManager;
+    private ShipManagerImpl shipManager;
     private DataSource ds;
 
 
@@ -44,6 +58,8 @@ public class AssignmentManagerImplTest {
         ds = prepareDataSource();
         DBUtils.executeSqlScript(ds, ClassLoader.class.getResourceAsStream("/createTables.sql"));
         assignmentManager = new AssignmentManagerImpl(ds);
+        crewmanManager = new CrewmanManagerImpl(ds);
+        shipManager = new ShipManagerImpl(ds);
         assignmentManager.createAssignment(assignment1);
         assignmentManager.createAssignment(assignment2);
         assignmentManager.createAssignment(assignment3);
@@ -99,6 +115,10 @@ public class AssignmentManagerImplTest {
 
     @Test
     public void findAssignmentByShip() {
+        shipManager.createShip(ship1);
+        shipManager.createShip(ship2);
+        shipManager.createShip(ship3);
+        shipManager.createShip(ship4);
         assertEquals(assignmentManager.findAssignmentByShip(assignment1.getShipId()), assignment1);
         assertEquals(assignmentManager.findAssignmentByShip(assignment2.getShipId()), assignment2);
         assertEquals(assignmentManager.findAssignmentByShip(assignment3.getShipId()), assignment3);
@@ -108,6 +128,10 @@ public class AssignmentManagerImplTest {
 
     @Test
     public void findAssignmentByCrewman() {
+        crewmanManager.createCrewman(crewman1);
+        crewmanManager.createCrewman(crewman2);
+        crewmanManager.createCrewman(crewman3);
+        crewmanManager.createCrewman(crewman4);
         assertEquals(assignmentManager.findAssignmentByCrewman(1L), assignment1);
         assertEquals(assignmentManager.findAssignmentByCrewman(2L), assignment2);
         assertEquals(assignmentManager.findAssignmentByCrewman(3L), assignment3);

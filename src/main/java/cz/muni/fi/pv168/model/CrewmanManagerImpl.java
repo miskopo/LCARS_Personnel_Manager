@@ -30,27 +30,18 @@ public class CrewmanManagerImpl implements CrewmanManager {
         //TODO: Add db check for unique ID
 
         validate(crewman);
-        if (crewman.getId() != null) throw new IllegalEntityException("body id is already set");
-
         try (Connection conn = dataSource.getConnection();
              PreparedStatement st = conn.prepareStatement(
-                     "INSERT INTO Crewman (id, name,rank) VALUES (?,?,?)",
+                     "INSERT INTO Crewman (name,rank) VALUES (?,?)",
                      Statement.RETURN_GENERATED_KEYS)) {
-            st.setLong(1, crewman.getId());
-            st.setString(2, crewman.getName());
-
-            // This is the proper way, how to handle LocalDate, however it is not
-            // supported by Derby yet - see https://issues.apache.org/jira/browse/DERBY-6445
-            //st.setObject(3, body.getBorn());
-            //st.setObject(4, body.getDied());
-
-            st.setString(3, crewman.getRank().name());
+            st.setString(1, crewman.getName());
+            st.setString(2, crewman.getRank().name());
 
             st.executeUpdate();
             crewman.setId(DBUtils.getId(st.getGeneratedKeys()));
 
         } catch (SQLException ex) {
-            throw new ServiceFailureException("Error when inserting crewman into db", ex);
+            throw new ServiceFailureException("Error when inserting crewman into DB.", ex);
         }
     }
 

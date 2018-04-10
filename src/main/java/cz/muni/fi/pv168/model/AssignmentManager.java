@@ -70,7 +70,7 @@ public interface AssignmentManager {
      * @throws IllegalArgumentException when ship is null
      * @return list of all assignments of given ship
      */
-    List<Assignment> findAssignmentByShip(long shipId) throws ServiceFailureException;
+    Assignment findAssignmentByShip(long shipId) throws ServiceFailureException;
 
     /**
      * Returns list of all assignemnts of given crewman
@@ -80,5 +80,5 @@ public interface AssignmentManager {
      *@throws IllegalArgumentException when crewman is null
      * @return list of all assignemnts of gien crewman
      */
-    List<Assignment> findAssignmentByCrewman(long crewmanId) throws ServiceFailureException;
+    Assignment findAssignmentByCrewman(long crewmanId) throws ServiceFailureException;
 }

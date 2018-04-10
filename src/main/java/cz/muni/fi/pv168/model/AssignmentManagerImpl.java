@@ -58,12 +58,7 @@ public class AssignmentManagerImpl implements AssignmentManager {
                      "WHERE id = ?")) {
             st.setLong(1, id);
             try (ResultSet rs = st.executeQuery()) {
-                if (rs.next()) {
-                    return rowToAssignment(rs);
-                }else {
-                    return null;
-                }
-//                return (rs.next()) ? rowToAssignment(rs) : null;
+                return (rs.next()) ? rowToAssignment(rs) : null;
             }
         } catch (SQLException ex) {
             throw new ServiceFailureException("Error when getting assignment with id = " + id + " from DB.", ex);
@@ -83,8 +78,20 @@ public class AssignmentManagerImpl implements AssignmentManager {
 
     @Override
     public void updateAssignment(Assignment assignment) throws ServiceFailureException, ValidationException, IllegalEntityException {
-        throw new UnsupportedOperationException();
-    }
+        validate(assignment);
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement st = conn.prepareStatement(
+                     "UPDATE Assignment SET Ship = ?, Crewman  = ?, StartDate = ?, EndDate = ? WHERE ID = ?")) {
+            st.setLong(1, assignment.getShipId());
+            st.setLong(2, assignment.getCrewmanId());
+            st.setDate(3, java.sql.Date.valueOf(assignment.getStartDate()));
+            st.setDate(4, java.sql.Date.valueOf(assignment.getEndDate()));
+            st.setLong(5, assignment.getId());
+
+            st.executeUpdate();
+        } catch (SQLException ex) {
+            throw new ServiceFailureException("Error when inserting assignment to db.", ex);
+        }    }
 
     @Override
     public void deleteAssignment(Assignment assignment) throws ServiceFailureException, IllegalEntityException {
@@ -101,7 +108,7 @@ public class AssignmentManagerImpl implements AssignmentManager {
         }
     }
 
-    private List<Assignment> findAssignmentByShip(Ship ship) throws ServiceFailureException {
+    private Assignment findAssignmentByShip(Ship ship) throws ServiceFailureException {
 
         if (ship == null) throw new IllegalArgumentException("ship is null");
         if (ship.getId() == null) throw new IllegalEntityException("ship id is null");
@@ -111,13 +118,14 @@ public class AssignmentManagerImpl implements AssignmentManager {
                      "SELECT Assignment.id, ship, crewman, startDate, endDate " +
                              "FROM Assignment JOIN Ship ON Assignment.ship = Ship.Id WHERE Assignment.ship = ?")) {
             st.setLong(1, ship.getId());
-            return AssignmentManagerImpl.executeQueryForMultipleAssignments(st);
-        } catch (SQLException ex) {
+            try (ResultSet rs = st.executeQuery()) {
+                return (rs.next()) ? rowToAssignment(rs) : null;
+            }        } catch (SQLException ex) {
             throw new ServiceFailureException("Error when trying to find assignment with ship " + ship, ex);
         }
     }
 
-    private List<Assignment> findAssignmentByCrewman(Crewman crewman) throws ServiceFailureException {
+    private Assignment findAssignmentByCrewman(Crewman crewman) throws ServiceFailureException {
 
         if (crewman == null) throw new IllegalArgumentException("Crewman is null.");
         if (crewman.getId() == null) throw new IllegalEntityException("Crewman id is null.");
@@ -128,8 +136,9 @@ public class AssignmentManagerImpl implements AssignmentManager {
                              "FROM Assignment JOIN Crewman ON Assignment.crewman = Crewman.id " +
                              "WHERE Crewman.id = ?")) {
             st.setLong(1, crewman.getId());
-            return AssignmentManagerImpl.executeQueryForMultipleAssignments(st);
-        } catch (SQLException ex) {
+            try (ResultSet rs = st.executeQuery()) {
+                return (rs.next()) ? rowToAssignment(rs) : null;
+            }        } catch (SQLException ex) {
             throw new ServiceFailureException("Error when trying to find assignments by crewman " + crewman,
                     ex);
         }
@@ -164,14 +173,14 @@ public class AssignmentManagerImpl implements AssignmentManager {
     }
 
     @Override
-    public List<Assignment> findAssignmentByShip(long shipId) throws ServiceFailureException {
+    public Assignment findAssignmentByShip(long shipId) throws ServiceFailureException {
         Ship ship = new Ship();
         ship.setId(shipId);
         return findAssignmentByShip(ship);
     }
 
     @Override
-    public List<Assignment> findAssignmentByCrewman(long crewmanId) throws ServiceFailureException {
+    public Assignment findAssignmentByCrewman(long crewmanId) throws ServiceFailureException {
         Crewman crewman = new Crewman();
         crewman.setId(crewmanId);
         return findAssignmentByCrewman(crewman);
