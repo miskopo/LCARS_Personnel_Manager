@@ -18,21 +18,13 @@ import static org.junit.Assert.*;
  * @author Michal Polovka
  */
 public class AssignmentManagerImplTest {
-    Ship ship1 = new Ship();
-    Ship ship2 = new Ship();
-    Ship ship3 = new Ship();
-    Ship ship4 = new Ship();
-    Crewman crewman1 = new Crewman();
-    Crewman crewman2 = new Crewman();
-    Crewman crewman3 = new Crewman();
-    Crewman crewman4 = new Crewman();
     StarDateUtils beginning = new StarDateUtils(12345.4);
     StarDateUtils end = new StarDateUtils(12345.5);
-    Assignment assignment1 = new Assignment(1L, ship1, crewman1, beginning, end);
-    Assignment assignment2 = new Assignment(2L, ship2, crewman2, beginning, end);
-    Assignment assignment3 = new Assignment(3L, ship3, crewman3, beginning, end);
-    Assignment assignment4 = new Assignment(4L, ship4, crewman4, beginning, end);
-    Assignment faultyAssignment = new Assignment(4L, ship1, crewman2, beginning, end);
+    Assignment assignment1 = new Assignment(1L, 1L, 1L, beginning, end);
+    Assignment assignment2 = new Assignment(2L, 2L, 2L, beginning, end);
+    Assignment assignment3 = new Assignment(3L, 3L, 3L, beginning, end);
+    Assignment assignment4 = new Assignment(4L, 4L, 4L, beginning, end);
+    Assignment faultyAssignment = new Assignment(4L, 5L, 5L, beginning, end);
 
     private AssignmentManagerImpl assignmentManager;
     private DataSource ds;
@@ -94,10 +86,10 @@ public class AssignmentManagerImplTest {
 
     @Test
     public void updateAssignment() {
-        assignment1.setCrewmanId(crewman2);
+        assignment1.setCrewmanId(4L);
         assignmentManager.updateAssignment(assignment1);
-        assertEquals(assignmentManager.getAssignmentById(1L).getCrewmanId(), crewman2);
-        assignment1.setCrewmanId(crewman1);
+        assertEquals(assignmentManager.getAssignmentById(1L).getCrewmanId(), 4L);
+        assignment1.setCrewmanId(2L);
     }
 
     @Test
@@ -106,19 +98,19 @@ public class AssignmentManagerImplTest {
 
     @Test
     public void findAssignmentByShip() {
-        assertEquals(assignmentManager.findAssignmentByShip(ship1), assignment1);
-        assertEquals(assignmentManager.findAssignmentByShip(ship2), assignment2);
-        assertEquals(assignmentManager.findAssignmentByShip(ship3), assignment3);
-        assertEquals(assignmentManager.findAssignmentByShip(ship4), assignment4);
-        assertNotEquals(assignmentManager.findAssignmentByShip(ship4), assignment1);
+        assertEquals(assignmentManager.findAssignmentByShip(1L), assignment1);
+        assertEquals(assignmentManager.findAssignmentByShip(2L), assignment2);
+        assertEquals(assignmentManager.findAssignmentByShip(3L), assignment3);
+        assertEquals(assignmentManager.findAssignmentByShip(4L), assignment4);
+        assertNotEquals(assignmentManager.findAssignmentByShip(4L), assignment1);
     }
 
     @Test
     public void findAssignmentByCrewman() {
-        assertEquals(assignmentManager.findAssignmentByCrewman(crewman1), assignment1);
-        assertEquals(assignmentManager.findAssignmentByCrewman(crewman2), assignment2);
-        assertEquals(assignmentManager.findAssignmentByCrewman(crewman3), assignment3);
-        assertEquals(assignmentManager.findAssignmentByCrewman(crewman4), assignment4);
-        assertNotEquals(assignmentManager.findAssignmentByCrewman(crewman4), assignment1);
+        assertEquals(assignmentManager.findAssignmentByCrewman(1L), assignment1);
+        assertEquals(assignmentManager.findAssignmentByCrewman(2L), assignment2);
+        assertEquals(assignmentManager.findAssignmentByCrewman(3L), assignment3);
+        assertEquals(assignmentManager.findAssignmentByCrewman(4L), assignment4);
+        assertNotEquals(assignmentManager.findAssignmentByCrewman(4L), assignment1);
     }
 }

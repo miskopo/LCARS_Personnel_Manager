@@ -6,6 +6,7 @@ import java.util.Objects;
 
 /**
  * @author Katarina Bulkova
+ * @author Michal Polovka
  */
 public class Assignment {
     private long id;

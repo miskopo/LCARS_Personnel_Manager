@@ -10,7 +10,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -61,8 +63,7 @@ public class AssignmentManagerImpl implements AssignmentManager {
         }
     }
 
-    @Override
-    public List<Assignment> findAssignmentByShip(Ship ship) throws ServiceFailureException {
+    private List<Assignment> findAssignmentByShip(Ship ship) throws ServiceFailureException {
 
         if (ship == null) throw new IllegalArgumentException("ship is null");
         if (ship.getId() == null) throw new IllegalEntityException("ship id is null");
@@ -79,8 +80,7 @@ public class AssignmentManagerImpl implements AssignmentManager {
         }
     }
 
-    @Override
-    public List<Assignment> findAssignmentByCrewman(Crewman crewman) throws ServiceFailureException {
+    private List<Assignment> findAssignmentByCrewman(Crewman crewman) throws ServiceFailureException {
 
         if (crewman == null) throw new IllegalArgumentException("crewman is null");
         if (crewman.getId() == null) throw new IllegalEntityException("crewman id is null");
@@ -93,7 +93,8 @@ public class AssignmentManagerImpl implements AssignmentManager {
             st.setLong(1, crewman.getId());
             return AssignmentManagerImpl.executeQueryForMultipleAssignments(st);
         } catch (SQLException ex) {
-            throw new ServiceFailureException("Error when trying to find assignments according to crewman " + crewman, ex);
+            throw new ServiceFailureException("Error when trying to find assignments by crewman " + crewman,
+                    ex);
         }
     }
 
@@ -110,28 +111,40 @@ public class AssignmentManagerImpl implements AssignmentManager {
 
     static private Assignment rowToAssignment(ResultSet rs) throws SQLException {
         long id = rs.getLong("id");
-        Ship ship = ;
-        // TODO: Fix
-        assignment.setCrewman(rs.getString("gender").t);
-        assignment.setStartDate(StarDateUtils.dateToStarDate((rs.getDate("born"))));
-        Assignment assignment =
-        return new Assignment(id, ship, crewman, startDate, endDate);
-        return null;
-    }
+        long shipId = rs.getLong("Ship");
+        long crewmanID = rs.getLong("Crewman");
+        LocalDate startDate = rs.getDate("StartDate").toLocalDate();
+        LocalDate endDate = rs.getDate("EndDate").toLocalDate();
+        return new Assignment(id, shipId, crewmanID, new StarDateUtils(StarDateUtils.dateToStarDate(startDate)),
+                new StarDateUtils(StarDateUtils.dateToStarDate(endDate)));
     }
 
     private void validate(Assignment assignment) {
         if (assignment == null) {
-            throw new IllegalArgumentException("assignment is null");
+            throw new IllegalArgumentException("assignment is null.");
         }
-        if (assignment.getShipId() == null) {
-            throw new ValidationException("ship is null");
+        if (assignment.getShipId() < 0) {
+            throw new ValidationException("Ship ID is invalid.");
         }
         if (assignment.getStartDate() == null) {
-            throw new ValidationException("start-date is null");
+            throw new ValidationException("Start date is null.");
         }
         if (assignment.getEndDate() == null) {
-            throw new ValidationException("end-date is null");
+            throw new ValidationException("Ende date is null.");
         }
+    }
+
+    @Override
+    public List<Assignment> findAssignmentByShip(long shipId) throws ServiceFailureException {
+        Ship ship = new Ship();
+        ship.setId(shipId);
+        return findAssignmentByShip(ship);
+    }
+
+    @Override
+    public List<Assignment> findAssignmentByCrewman(long crewmanId) throws ServiceFailureException {
+        Crewman crewman = new Crewman();
+        crewman.setId(crewmanId);
+        return findAssignmentByCrewman(crewman);
     }
 }

@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * @author Katarina Bulkova
+ * @author Michal Polovka
  */
 public interface AssignmentManager {
 
@@ -64,20 +65,20 @@ public interface AssignmentManager {
 
     /**
      * Returns list of all assigments of given ship
-     * @param ship key of requested assignment
+     * @param shipId key of requested assignment
      * @throws ServiceFailureException when db operation fails
      * @throws IllegalArgumentException when ship is null
      * @return list of all assignments of given ship
      */
-    List<Assignment> findAssignmentByShip(Ship ship) throws ServiceFailureException;
+    List<Assignment> findAssignmentByShip(long shipId) throws ServiceFailureException;
 
     /**
      * Returns list of all assignemnts of given crewman
      *
-     * @param crewman key of requested assignment
+     * @param crewmanId key of requested assignment
      * @throws ServiceFailureException when db operation fails
      *@throws IllegalArgumentException when crewman is null
      * @return list of all assignemnts of gien crewman
      */
-    List<Assignment> findAssignmentByCrewman(Crewman crewman) throws ServiceFailureException;
+    List<Assignment> findAssignmentByCrewman(long crewmanId) throws ServiceFailureException;
 }
