@@ -38,19 +38,43 @@ public class AssignmentManagerImpl implements AssignmentManager {
             st.setDate(3, java.sql.Date.valueOf(assignment.getStartDate()));
             st.setDate(4, java.sql.Date.valueOf(assignment.getEndDate()));
         } catch (SQLException ex) {
-            throw new ServiceFailureException("Error inserting assignment to db.", ex);
+            throw new ServiceFailureException("Error when inserting assignment to db.", ex);
         }
 
     }
 
     @Override
     public Assignment getAssignmentById(Long id) throws ServiceFailureException {
-        throw new UnsupportedOperationException();
+        if (id == null) throw new IllegalArgumentException("ID is null.");
+
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement st = conn.prepareStatement("SELECT id, ship, crewman, startdate, enddate FROM " +
+                     "Assignment " +
+                     "WHERE " +
+                     "id = " +
+                     "?")) {
+            st.setLong(1, id);
+            try (ResultSet rs = st.executeQuery()) {
+                if (rs.next()) {
+                    return rowToAssignment(rs);
+                } else {
+                    return null;
+                }
+            }
+        } catch (SQLException ex) {
+            throw new ServiceFailureException("Error when getting assignment with id = " + id + " from DB.", ex);
+        }
     }
 
     @Override
     public List<Assignment> findAllAssignments() throws ServiceFailureException {
-        throw new UnsupportedOperationException();
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement st = conn.prepareStatement(
+                     "SELECT * FROM Assignment")) {
+            return AssignmentManagerImpl.executeQueryForMultipleAssignments(st);
+        } catch (SQLException ex) {
+            throw new ServiceFailureException("Error when deleting assignment from DB.", ex);
+        }
     }
 
     @Override
@@ -69,7 +93,7 @@ public class AssignmentManagerImpl implements AssignmentManager {
             int count = st.executeUpdate();
             if (count != 1) throw new IllegalEntityException("Updated " + count + " instead of 1 assignment");
         } catch (SQLException ex) {
-            throw new ServiceFailureException("Error when deleting assignment from the db", ex);
+            throw new ServiceFailureException("Error when deleting assignment from DB.", ex);
         }
     }
 
@@ -80,9 +104,8 @@ public class AssignmentManagerImpl implements AssignmentManager {
 
         try (Connection conn = dataSource.getConnection();
              PreparedStatement st = conn.prepareStatement(
-                     "SELECT Assignment.id, ship, crewman, starDate, endDate " +
-                             "FROM Assignment JOIN Ship ON Assignment.ship.Id = Ship.Id" +
-                             "WHERE Assignment.ship = ?")) {
+                     "SELECT Assignment.id, ship, crewman, startDate, endDate " +
+                             "FROM Assignment JOIN Ship ON Assignment.ship = Ship.Id WHERE Assignment.ship = ?")) {
             st.setLong(1, ship.getId());
             return AssignmentManagerImpl.executeQueryForMultipleAssignments(st);
         } catch (SQLException ex) {
@@ -92,14 +115,14 @@ public class AssignmentManagerImpl implements AssignmentManager {
 
     private List<Assignment> findAssignmentByCrewman(Crewman crewman) throws ServiceFailureException {
 
-        if (crewman == null) throw new IllegalArgumentException("crewman is null");
-        if (crewman.getId() == null) throw new IllegalEntityException("crewman id is null");
+        if (crewman == null) throw new IllegalArgumentException("Crewman is null.");
+        if (crewman.getId() == null) throw new IllegalEntityException("Crewman id is null.");
 
         try (Connection conn = dataSource.getConnection();
              PreparedStatement st = conn.prepareStatement(
-                     "SELECT Body.id, name, gender, born, died, vampire " +
-                             "FROM Body JOIN Assignment ON Assignment.ship = Crewman.graveId " +
-                             "WHERE Grave.id = ?")) {
+                     "SELECT Assignment.id, ship, crewman, startdate, enddate " +
+                             "FROM Assignment JOIN Crewman ON Assignment.crewman = Crewman.id " +
+                             "WHERE Crewman.id = ?")) {
             st.setLong(1, crewman.getId());
             return AssignmentManagerImpl.executeQueryForMultipleAssignments(st);
         } catch (SQLException ex) {
@@ -108,11 +131,11 @@ public class AssignmentManagerImpl implements AssignmentManager {
         }
     }
 
-    static List<Assignment> executeQueryForMultipleAssignments(PreparedStatement st) throws SQLException {
+    private static List<Assignment> executeQueryForMultipleAssignments(PreparedStatement st) throws SQLException {
         try (ResultSet rs = st.executeQuery()) {
             List<Assignment> result = new ArrayList<>();
             while (rs.next()) {
-//                result.add(rowToAssignment(rs));
+                result.add(rowToAssignment(rs));
             }
             return result;
         }
@@ -129,11 +152,11 @@ public class AssignmentManagerImpl implements AssignmentManager {
     }
 
     private void validate(Assignment assignment) {
-        if (assignment == null) throw new IllegalArgumentException("assignment is null.");
-        if (assignment.getId() < 0) throw new IllegalEntityException("assignment id is not valid");
+        if (assignment == null) throw new IllegalEntityException("Assignment is null.");
+        if (assignment.getId() < 0) throw new IllegalEntityException("Assignment id is not valid");
         if (assignment.getShipId() < 0) throw new ValidationException("Ship ID is invalid.");
         if (assignment.getStartDate() == null) throw new ValidationException("Start date is null.");
-        if (assignment.getEndDate() == null) throw new ValidationException("Ende date is null.");
+        if (assignment.getEndDate() == null) throw new ValidationException("End date is null.");
     }
 
     @Override
