@@ -51,7 +51,7 @@ public class AssignmentManagerImpl implements AssignmentManager {
 
     @Override
     public Assignment getAssignmentById(Long id) throws ServiceFailureException {
-        if (id == null) throw new IllegalArgumentException("ID is null.");
+        if (id <= 0) throw new IllegalArgumentException("ID is invalid.");
         try (Connection conn = dataSource.getConnection();
              PreparedStatement st = conn.prepareStatement("SELECT id, ship, crewman, startDate, endDate FROM " +
                      "ASSIGNMENT " +
@@ -72,7 +72,7 @@ public class AssignmentManagerImpl implements AssignmentManager {
                      "SELECT * FROM Assignment")) {
             return AssignmentManagerImpl.executeQueryForMultipleAssignments(st);
         } catch (SQLException ex) {
-            throw new ServiceFailureException("Error when deleting assignment from DB.", ex);
+            throw new ServiceFailureException("Error when getting all assignments from DB.", ex);
         }
     }
 
@@ -96,7 +96,6 @@ public class AssignmentManagerImpl implements AssignmentManager {
 
     @Override
     public void deleteAssignment(Assignment assignment) throws ServiceFailureException, IllegalEntityException {
-
         validate(assignment);
         try (Connection conn = dataSource.getConnection();
              PreparedStatement st = conn.prepareStatement(

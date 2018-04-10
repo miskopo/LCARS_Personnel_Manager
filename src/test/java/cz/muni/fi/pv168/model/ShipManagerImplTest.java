@@ -22,7 +22,6 @@ public class ShipManagerImplTest {
     Ship ship2 = new Ship(2L, "Voyager", "NYC-94", ShipType.WARSHIP, 8.4);
     Ship ship3 = new Ship(3L, "Pegasus", "NYC-12", ShipType.TRANSPORT, 6.5);
     Ship ship4 = new Ship(4L, "Discovery", "NYC-42", ShipType.SCIENCE, 9.2);
-    Ship faultyShip = new Ship(4L, "Sparrow", "RSS-83", ShipType.SHUTTLE, 1.0);
 
     private ShipManagerImpl shipManager;
     private DataSource ds;
@@ -41,6 +40,10 @@ public class ShipManagerImplTest {
         ds = prepareDataSource();
         DBUtils.executeSqlScript(ds, ClassLoader.class.getResourceAsStream("/createTables.sql"));
         shipManager = new ShipManagerImpl(ds);
+        shipManager.createShip(ship1);
+        shipManager.createShip(ship2);
+        shipManager.createShip(ship3);
+        shipManager.createShip(ship4);
     }
 
     @After
@@ -59,21 +62,15 @@ public class ShipManagerImplTest {
         shipManager.createShip(ship2);
         shipManager.createShip(ship3);
         shipManager.createShip(ship4);
-
-    }
-
-    @Test(expected = IllegalEntityException.class)
-    public void createFaultyShip() {
-        shipManager.createShip(faultyShip);
     }
 
     @Test
     public void getShip() {
-        assertEquals(shipManager.getShip(1L), ship1);
-        assertEquals(shipManager.getShip(2L), ship2);
-        assertEquals(shipManager.getShip(3L), ship3);
-        assertEquals(shipManager.getShip(4L), ship4);
-        assertNotEquals(shipManager.getShip(4L), ship1);
+        assertEquals(shipManager.getShip(ship1.getId()), ship1);
+        assertEquals(shipManager.getShip(ship2.getId()), ship2);
+        assertEquals(shipManager.getShip(ship3.getId()), ship3);
+        assertEquals(shipManager.getShip(ship4.getId()), ship4);
+        assertNotEquals(shipManager.getShip(ship4.getId()), ship1);
      }
 
     @Test(expected = IllegalEntityException.class)
@@ -83,10 +80,9 @@ public class ShipManagerImplTest {
 
     @Test
     public void updateShip() {
-        ship1.setDesignation("EnterpriseModified");
+        ship1.setName("Enterprise_modified");
         shipManager.updateShip(ship1);
-        assertEquals("EnterpriseModified", shipManager.getShip(ship1.getId()).getName());
-        ship1.setDesignation("Enterprise");
+        assertEquals("Enterprise_modified", shipManager.getShip(ship1.getId()).getName());
     }
 
     @Test(expected = IllegalEntityException.class)

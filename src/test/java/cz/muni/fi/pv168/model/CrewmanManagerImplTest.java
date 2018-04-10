@@ -77,8 +77,7 @@ public class CrewmanManagerImplTest {
     public void updateCrewman() {
         crewman1.setName("Arthur Dent_modified");
         crewmanManager.updateCrewman(crewman1);
-        assertEquals("Arthur Dent_modified", crewmanManager.getCrewman(1L).getName());
-        crewman1.setName("Arthur Dent");
+        assertEquals("Arthur Dent_modified", crewmanManager.getCrewman(crewman1.getId()).getName());
     }
 
     @Test
