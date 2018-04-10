@@ -94,10 +94,10 @@ public class AssignmentManagerImplTest {
 
     @Test
     public void updateAssignment() {
-        assignment1.setCrewman(crewman2);
+        assignment1.setCrewmanId(crewman2);
         assignmentManager.updateAssignment(assignment1);
-        assertEquals(assignmentManager.getAssignmentById(1L).getCrewman(), crewman2);
-        assignment1.setCrewman(crewman1);
+        assertEquals(assignmentManager.getAssignmentById(1L).getCrewmanId(), crewman2);
+        assignment1.setCrewmanId(crewman1);
     }
 
     @Test

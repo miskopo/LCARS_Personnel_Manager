@@ -20,10 +20,6 @@ public class AssignmentManagerImpl implements AssignmentManager {
     private DataSource dataSource;
 
     @SuppressWarnings("WeakerAccess")
-    public AssignmentManagerImpl() {
-    }
-
-    @SuppressWarnings("WeakerAccess")
     public AssignmentManagerImpl(DataSource dataSource) {
         this.dataSource = dataSource;
     }
@@ -111,33 +107,24 @@ public class AssignmentManagerImpl implements AssignmentManager {
         }
     }
 
-<<<<<<< Updated upstream
+
     static private Assignment rowToAssignment(ResultSet rs) throws SQLException {
-//        Assignment assignment = new Assignment();
-//        assignment.setId(rs.getLong("id"));
-//        assignment.setShip(rs.getString("ship"));
-=======
-//    static private Assignment rowToAssignment(ResultSet rs) throws SQLException {
-//        Assignment assignment = new Assignment();
-//        assignment.setId(rs.getLong("id"));
-//        assignment.setShip(((Ship) rs.getString("ship")));
->>>>>>> Stashed changes
-//        assignment.setCrewman(rs.getString("gender").t);
-//        assignment.setStartDate(StarDateUtils.dateToStarDate((rs.getDate("born"))));
-//        assignment.setEndDate(toLocalDate(rs.getDate("died").));
-//        return assignment;
-<<<<<<< Updated upstream
+        long id = rs.getLong("id");
+        Ship ship = ;
+        // TODO: Fix
+        assignment.setCrewman(rs.getString("gender").t);
+        assignment.setStartDate(StarDateUtils.dateToStarDate((rs.getDate("born"))));
+        Assignment assignment =
+        return new Assignment(id, ship, crewman, startDate, endDate);
         return null;
     }
-=======
-//    }
->>>>>>> Stashed changes
+    }
 
     private void validate(Assignment assignment) {
         if (assignment == null) {
             throw new IllegalArgumentException("assignment is null");
         }
-        if (assignment.getShip() == null) {
+        if (assignment.getShipId() == null) {
             throw new ValidationException("ship is null");
         }
         if (assignment.getStartDate() == null) {

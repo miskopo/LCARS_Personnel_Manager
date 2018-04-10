@@ -9,15 +9,15 @@ import java.util.Objects;
  */
 public class Assignment {
     private long id;
-    private Ship ship;
-    private Crewman crewman;
+    private long shipId;
+    private long crewmanId;
     private StarDateUtils startDate;
     private StarDateUtils endDate;
 
-    public Assignment(long id, Ship ship, Crewman crewman, StarDateUtils startDate, StarDateUtils endDate) {
+    public Assignment(long id, long shipId, long crewmanId, StarDateUtils startDate, StarDateUtils endDate) {
         this.id = id;
-        this.ship = ship;
-        this.crewman = crewman;
+        this.shipId = shipId;
+        this.crewmanId = crewmanId;
         this.startDate = startDate;
         this.endDate = endDate;
     }
@@ -30,20 +30,20 @@ public class Assignment {
         this.id = id;
     }
 
-    public Ship getShip() {
-        return ship;
+    public long getShipId() {
+        return shipId;
     }
 
-    public void setShip(Ship ship) {
-        this.ship = ship;
+    public void setShipId(long shipId) {
+        this.shipId = shipId;
     }
 
-    public Crewman getCrewman() {
-        return crewman;
+    public long getCrewmanId() {
+        return crewmanId;
     }
 
-    public void setCrewman(Crewman crewman) {
-        this.crewman = crewman;
+    public void setCrewmanId(long crewmanId) {
+        this.crewmanId = crewmanId;
     }
 
     public StarDateUtils getStartDate() {
@@ -67,8 +67,8 @@ public class Assignment {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Assignment that = (Assignment) o;
-        return Objects.equals(ship, that.ship) &&
-                Objects.equals(crewman, that.crewman) &&
+        return Objects.equals(shipId, that.shipId) &&
+                Objects.equals(crewmanId, that.crewmanId) &&
                 Objects.equals(startDate, that.startDate) &&
                 Objects.equals(endDate, that.endDate);
     }
@@ -76,6 +76,6 @@ public class Assignment {
     @Override
     public int hashCode() {
 
-        return Objects.hash(ship, crewman, startDate, endDate);
+        return Objects.hash(shipId, crewmanId, startDate, endDate);
     }
 }
