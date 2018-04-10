@@ -2,6 +2,7 @@ package cz.muni.fi.pv168.model;
 
 import cz.muni.fi.pv168.common.StarDateUtils;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -12,10 +13,10 @@ public class Assignment {
     private long id;
     private long shipId;
     private long crewmanId;
-    private StarDateUtils startDate;
-    private StarDateUtils endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
-    public Assignment(long id, long shipId, long crewmanId, StarDateUtils startDate, StarDateUtils endDate) {
+    public Assignment(long id, long shipId, long crewmanId, LocalDate startDate, LocalDate endDate) {
         this.id = id;
         this.shipId = shipId;
         this.crewmanId = crewmanId;
@@ -47,19 +48,19 @@ public class Assignment {
         this.crewmanId = crewmanId;
     }
 
-    public StarDateUtils getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(StarDateUtils startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public StarDateUtils getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(StarDateUtils endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 

@@ -11,6 +11,7 @@ import org.junit.Test;
 import javax.sql.DataSource;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalDate;
 
 import static org.junit.Assert.*;
 
@@ -18,8 +19,8 @@ import static org.junit.Assert.*;
  * @author Michal Polovka
  */
 public class AssignmentManagerImplTest {
-    StarDateUtils beginning = new StarDateUtils(12345.4);
-    StarDateUtils end = new StarDateUtils(12345.5);
+    LocalDate beginning = LocalDate.of(2018, 4, 4);
+    LocalDate end = LocalDate.of(1970, 1, 1);
     Assignment assignment1 = new Assignment(1L, 1L, 1L, beginning, end);
     Assignment assignment2 = new Assignment(2L, 2L, 2L, beginning, end);
     Assignment assignment3 = new Assignment(3L, 3L, 3L, beginning, end);

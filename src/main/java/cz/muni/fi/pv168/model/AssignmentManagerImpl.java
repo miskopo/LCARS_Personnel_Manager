@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -28,7 +29,18 @@ public class AssignmentManagerImpl implements AssignmentManager {
 
     @Override
     public void createAssignment(Assignment assignment) throws ServiceFailureException, ValidationException, IllegalEntityException {
-        throw new UnsupportedOperationException();
+        validate(assignment);
+        try (Connection conn = dataSource.getConnection();
+             PreparedStatement st = conn.prepareStatement(
+                     "INSERT INTO Assignment (Ship, Crewman, StartDate, EndDate) VALUES (?, ?, ?, ?)")) {
+            st.setLong(1, assignment.getCrewmanId());
+            st.setLong(2, assignment.getShipId());
+            st.setDate(3, java.sql.Date.valueOf(assignment.getStartDate()));
+            st.setDate(4, java.sql.Date.valueOf(assignment.getEndDate()));
+        } catch (SQLException ex) {
+            throw new ServiceFailureException("Error inserting assignment to db.", ex);
+        }
+
     }
 
     @Override
@@ -49,15 +61,13 @@ public class AssignmentManagerImpl implements AssignmentManager {
     @Override
     public void deleteAssignment(Assignment assignment) throws ServiceFailureException, IllegalEntityException {
 
-        if (assignment == null) throw new IllegalArgumentException("assignment is null");
-        if (assignment.getId() < 0) throw new IllegalEntityException("assignment id is not valid");
-
+        validate(assignment);
         try (Connection conn = dataSource.getConnection();
              PreparedStatement st = conn.prepareStatement(
                      "DELETE FROM Assignment WHERE id = ?")) {
             st.setLong(1, assignment.getId());
             int count = st.executeUpdate();
-            if (count != 1) throw new IllegalEntityException("updated " + count + " instead of 1 assignment");
+            if (count != 1) throw new IllegalEntityException("Updated " + count + " instead of 1 assignment");
         } catch (SQLException ex) {
             throw new ServiceFailureException("Error when deleting assignment from the db", ex);
         }
@@ -115,23 +125,15 @@ public class AssignmentManagerImpl implements AssignmentManager {
         long crewmanID = rs.getLong("Crewman");
         LocalDate startDate = rs.getDate("StartDate").toLocalDate();
         LocalDate endDate = rs.getDate("EndDate").toLocalDate();
-        return new Assignment(id, shipId, crewmanID, new StarDateUtils(StarDateUtils.dateToStarDate(startDate)),
-                new StarDateUtils(StarDateUtils.dateToStarDate(endDate)));
+        return new Assignment(id, shipId, crewmanID, startDate, endDate);
     }
 
     private void validate(Assignment assignment) {
-        if (assignment == null) {
-            throw new IllegalArgumentException("assignment is null.");
-        }
-        if (assignment.getShipId() < 0) {
-            throw new ValidationException("Ship ID is invalid.");
-        }
-        if (assignment.getStartDate() == null) {
-            throw new ValidationException("Start date is null.");
-        }
-        if (assignment.getEndDate() == null) {
-            throw new ValidationException("Ende date is null.");
-        }
+        if (assignment == null) throw new IllegalArgumentException("assignment is null.");
+        if (assignment.getId() < 0) throw new IllegalEntityException("assignment id is not valid");
+        if (assignment.getShipId() < 0) throw new ValidationException("Ship ID is invalid.");
+        if (assignment.getStartDate() == null) throw new ValidationException("Start date is null.");
+        if (assignment.getEndDate() == null) throw new ValidationException("Ende date is null.");
     }
 
     @Override
