@@ -35,7 +35,7 @@ public class AssignmentManagerImpl implements AssignmentManager {
         try (Connection conn = dataSource.getConnection();
              PreparedStatement st = conn.prepareStatement(
                      "INSERT INTO Assignment (Ship, Crewman, StartDate, EndDate) VALUES (?,?,?,?)", Statement
-                .RETURN_GENERATED_KEYS)) {
+                             .RETURN_GENERATED_KEYS)) {
             st.setLong(1, assignment.getShipId());
             st.setLong(2, assignment.getCrewmanId());
             st.setDate(3, java.sql.Date.valueOf(assignment.getStartDate()));
@@ -91,7 +91,8 @@ public class AssignmentManagerImpl implements AssignmentManager {
             st.executeUpdate();
         } catch (SQLException ex) {
             throw new ServiceFailureException("Error when inserting assignment to db.", ex);
-        }    }
+        }
+    }
 
     @Override
     public void deleteAssignment(Assignment assignment) throws ServiceFailureException, IllegalEntityException {

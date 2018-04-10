@@ -9,6 +9,7 @@ import java.util.List;
 
 /**
  * @author Michal Polovka
+ * @author Katarina Bulkova
  */
 public class CrewmanManagerImpl implements CrewmanManager {
     private DataSource dataSource;
@@ -27,8 +28,6 @@ public class CrewmanManagerImpl implements CrewmanManager {
         if (crewman == null){
             throw new IllegalEntityException("Provided crewman is null");
         }
-        //TODO: Add db check for unique ID
-
         validate(crewman);
         try (Connection conn = dataSource.getConnection();
              PreparedStatement st = conn.prepareStatement(
@@ -48,7 +47,7 @@ public class CrewmanManagerImpl implements CrewmanManager {
     @Override
     public Crewman getCrewman(Long id) throws ServiceFailureException {
 
-        if (id == null) throw new IllegalArgumentException("id is null");
+        if (id <= 0) throw new IllegalArgumentException("ID is invalid.");
 
         try (Connection conn = dataSource.getConnection();
              PreparedStatement st = conn.prepareStatement("SELECT id, name, rank FROM Crewman WHERE id = ?")) {
@@ -67,20 +66,17 @@ public class CrewmanManagerImpl implements CrewmanManager {
 
     @Override
     public void updateCrewman(Crewman crewman) throws ServiceFailureException, ValidationException, IllegalEntityException {
-
         validate(crewman);
-
-        if (crewman.getId() == null) throw new IllegalEntityException("crewman id is null");
-
         try (Connection conn = dataSource.getConnection();
-             PreparedStatement st = conn.prepareStatement("UPDATE Crewman SET name = ?, rank = ? WHERE id = ?")) {
+             PreparedStatement st = conn.prepareStatement(
+                     "UPDATE Crewman SET Name = ?, Rank  = ? WHERE ID = ?")) {
             st.setString(1, crewman.getName());
             st.setString(2, crewman.getRank().name());
+            st.setLong(3, crewman.getId());
 
-            int count = st.executeUpdate();
-            if (count != 1) throw new IllegalEntityException("updated " + count + " crewman records instead of 1");
+            st.executeUpdate();
         } catch (SQLException ex) {
-            throw new ServiceFailureException("Error when updating crewman in the db", ex);
+            throw new ServiceFailureException("Error when inserting assignment to db.", ex);
         }
     }
 

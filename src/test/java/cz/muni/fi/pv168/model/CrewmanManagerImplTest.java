@@ -22,7 +22,6 @@ public class CrewmanManagerImplTest {
     Crewman crewman2 = new Crewman(2L, "Anakin Skywalker", Rank.COMMANDER);
     Crewman crewman3 = new Crewman(3L, "Doctor Who", Rank.LIEUTENANT);
     Crewman crewman4 = new Crewman(4L, "Gaius Julius Caesar", Rank.ENSIGN);
-    Crewman faultyCrewman = new Crewman(4L, "Nasty Dalek", Rank.CAPTAIN);
 
     private CrewmanManagerImpl crewmanManager;
     private DataSource ds;
@@ -41,6 +40,10 @@ public class CrewmanManagerImplTest {
         ds = prepareDataSource();
         DBUtils.executeSqlScript(ds, ClassLoader.class.getResourceAsStream("/createTables.sql"));
         crewmanManager = new CrewmanManagerImpl(ds);
+        crewmanManager.createCrewman(crewman1);
+        crewmanManager.createCrewman(crewman2);
+        crewmanManager.createCrewman(crewman3);
+        crewmanManager.createCrewman(crewman4);
     }
 
     @After
@@ -60,12 +63,6 @@ public class CrewmanManagerImplTest {
         crewmanManager.createCrewman(crewman3);
         crewmanManager.createCrewman(crewman4);
     }
-
-    @Test(expected = IllegalEntityException.class)
-    public void createFaultyCrewman() {
-        crewmanManager.createCrewman(faultyCrewman);
-    }
-
 
     @Test
     public void getCrewman() {
