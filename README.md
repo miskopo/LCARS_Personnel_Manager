@@ -12,11 +12,11 @@ It's "disguised" as personnel manager of some Star fleet HR manager.
 Thus, it has
 following properties (marked are implemented):
 
-- [ ] Create crewmanId
-- [ ] Create new unoccupied shipId
-- [ ] Assign crewmanId to the shipId
-- [ ] List all ships and crewmen
-- [ ] Find the shipId of specified crewmanId
+- [x] Create crewman
+- [ ] Create new unoccupied ship
+- [ ] Assign crewman to the ship
+- [x] List all ships and crewmen
+- [ ] Find the ship of specified crewman
 
 _Note: The table above also describes user case diagram._
 
