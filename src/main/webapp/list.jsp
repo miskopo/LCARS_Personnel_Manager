@@ -20,7 +20,7 @@
     </c:forEach>
 </table>
 
-<h2>Zadejte knihu</h2>
+<h2>Input crewman</h2>
 <c:if test="${not empty error}">
     <div style="border: solid 1px red; background-color: yellow; padding: 10px">
         <c:out value="${error}"/>

@@ -110,7 +110,8 @@ public class AssignmentManagerImplTest {
 
     @Test
     public void deleteAssignment() {
-
+        assignmentManager.deleteAssignment(assignment1);
+        assertNull(assignmentManager.getAssignmentById(assignment1.getId()));
     }
 
     @Test

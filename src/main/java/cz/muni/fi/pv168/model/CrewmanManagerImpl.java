@@ -80,20 +80,26 @@ public class CrewmanManagerImpl implements CrewmanManager {
         }
     }
 
-    @Override
     public void deleteCrewman(Crewman crewman) throws ServiceFailureException, IllegalEntityException {
-        if (crewman == null) throw new IllegalArgumentException("crewman is null");
-        if (crewman.getId() == null) throw new IllegalEntityException("crewman id is null");
+        if (crewman == null) throw new IllegalArgumentException("Crewman is null.");
+        if (crewman.getId() <= 0) throw new IllegalEntityException("Crewman id is invalid.");
 
         try (Connection conn = dataSource.getConnection();
              PreparedStatement st = conn.prepareStatement("DELETE FROM Crewman WHERE id = ?")) {
             st.setLong(1, crewman.getId());
             int count = st.executeUpdate();
-            if (count != 1) throw new IllegalEntityException("deleted " + count + " instead of 1 crewman");
+            if (count != 1) throw new IllegalEntityException("Deleted " + count + " instead of 1 crewman.");
         } catch (SQLException ex) {
-            throw new ServiceFailureException("Error when deleting crewman from the db", ex);
+            throw new ServiceFailureException("Error when deleting crewman from the db.", ex);
         }
     }
+
+    @Override
+    public void deleteCrewman(long id) throws ServiceFailureException, IllegalEntityException {
+        Crewman crewman = new Crewman(id, null, null);
+        deleteCrewman(crewman);
+        }
+
 
     @Override
     public List<Crewman> findAllCrewmen() throws ServiceFailureException {
@@ -125,16 +131,16 @@ public class CrewmanManagerImpl implements CrewmanManager {
 
     private void validate(Crewman crewman) {
         if (crewman == null) {
-            throw new IllegalArgumentException("crewman is null");
+            throw new IllegalArgumentException("Crewman is null.");
         }
-        if (crewman.getId() == null) {
-            throw new ValidationException("id is null");
+        if (crewman.getId() <= 0) {
+            throw new ValidationException("ID is invalid.");
         }
         if (crewman.getName() == null) {
-            throw new ValidationException("name is null");
+            throw new ValidationException("Name is null.");
         }
         if (crewman.getRank() == null) {
-            throw new ValidationException("rank is null");
+            throw new ValidationException("Rank is null.");
         }
     }
 }

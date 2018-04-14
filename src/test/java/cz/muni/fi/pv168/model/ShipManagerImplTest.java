@@ -93,7 +93,7 @@ public class ShipManagerImplTest {
     @Test
     public void deleteShip() {
         shipManager.deleteShip(ship1);
-        assertTrue(shipManager.getShip(1L) == null) ;
+        assertNull(shipManager.getShip(ship1.getId()));
     }
 
     @Test

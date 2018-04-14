@@ -83,7 +83,7 @@ public class CrewmanManagerImplTest {
     @Test
     public void deleteCrewman() {
         crewmanManager.deleteCrewman(crewman1);
-        assertTrue(crewmanManager.getCrewman(1L) == null);
+        assertNull(crewmanManager.getCrewman(crewman1.getId()));
     }
 
     @Test

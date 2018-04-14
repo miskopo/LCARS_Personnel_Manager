@@ -49,12 +49,12 @@ public interface CrewmanManager {
     /**
      * Deletes crewman from the database
      *
-     * @param crewman crewman to be deleted from db
+     * @param crewmanId id of crewman to be deleted from db
      * @throws IllegalArgumentException when crewman is null
      * @throws ServiceFailureException when db operation fails
      * @throws IllegalEntityException when crewman has null id or does not exist in the database
      */
-    void deleteCrewman(Crewman crewman) throws ServiceFailureException, IllegalEntityException;
+    void deleteCrewman(long crewmanId) throws ServiceFailureException, IllegalEntityException;
 
     /**
      * Returns list of all crewmen in the database
