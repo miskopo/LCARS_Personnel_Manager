@@ -46,7 +46,8 @@ public class CrewmanServlet extends HttpServlet {
                 }
                 //form data processing - storing to database
                 try {
-                    Crewman crewman = new Crewman(null, name, Rank.valueOf(rank));
+                    // TODO: ID chould not be compulsory
+                    Crewman crewman = new Crewman(1L, name, Rank.valueOf(rank));
                     getCrewmanManager().createCrewman(crewman);
                     //redirect-after-POST protects from multiple submission
                     response.sendRedirect(request.getContextPath()+URL_MAPPING);
@@ -66,7 +67,8 @@ public class CrewmanServlet extends HttpServlet {
                     return;
                 }
             case "/update":
-                //TODO BONUS
+                Long id = Long.valueOf(request.getParameter("id"));
+                Crewman crewmanBackup = getCrewmanManager().getCrewman(id);
                 return;
             default:
                 response.sendError(HttpServletResponse.SC_NOT_FOUND, "Unknown action " + action);

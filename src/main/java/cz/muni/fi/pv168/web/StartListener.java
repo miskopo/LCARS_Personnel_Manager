@@ -37,7 +37,7 @@ public class StartListener implements ServletContextListener {
         EmbeddedDataSource ds = new EmbeddedDataSource();
         ds.setDatabaseName("memory:shipmanager");
         ds.setCreateDatabase("create");
-        DBUtils.executeSqlScript(ds, ClassLoader.class.getResourceAsStream("/createTables.sql"));
+        DBUtils.executeSqlScript(ds, StartListener.class.getResourceAsStream("/createTables.sql"));
         return ds;
     }
 }

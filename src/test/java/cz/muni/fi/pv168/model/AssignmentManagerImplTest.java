@@ -56,7 +56,7 @@ public class AssignmentManagerImplTest {
     @Before
     public void setUp() throws SQLException, IOException {
         ds = prepareDataSource();
-        DBUtils.executeSqlScript(ds, ClassLoader.class.getResourceAsStream("/createTables.sql"));
+        DBUtils.executeSqlScript(ds, AssignmentManager.class.getResourceAsStream("/createTables.sql"));
         assignmentManager = new AssignmentManagerImpl(ds);
         crewmanManager = new CrewmanManagerImpl(ds);
         shipManager = new ShipManagerImpl(ds);

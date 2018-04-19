@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Sat Apr 14 19:16:50 CEST 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0162-c528-d518-00000584f018 
+Thu Apr 19 16:40:24 CEST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0162-de59-67ab-000005f47330 
 on database directory memory:/home/miskopo/JavaSeminary/pv168_seminar_project/shipmanager with class loader WebappClassLoader
   context: /semestralproject
   delegate: false
@@ -14,6 +14,6 @@ java.runtime.version=1.8.0_162-b12
 user.dir=/home/miskopo/JavaSeminary/pv168_seminar_project
 os.name=Linux
 os.arch=amd64
-os.version=4.14.33-1-lts
+os.version=4.14.34-1-lts
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
