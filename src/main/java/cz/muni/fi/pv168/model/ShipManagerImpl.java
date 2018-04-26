@@ -84,8 +84,8 @@ public class ShipManagerImpl implements ShipManager {
 
     @Override
     public void deleteShip(Ship ship) throws ServiceFailureException, IllegalEntityException {
-        validate(ship);
-        try (Connection conn = dataSource.getConnection();
+        if (ship == null) throw new IllegalArgumentException("Ship is null.");
+        if (ship.getId() <= 0) throw new IllegalEntityException("Ship id is invalid.");        try (Connection conn = dataSource.getConnection();
              PreparedStatement st = conn.prepareStatement(
                      "DELETE FROM Ship WHERE id = ?")) {
             st.setLong(1, ship.getId());
@@ -94,6 +94,13 @@ public class ShipManagerImpl implements ShipManager {
         } catch (SQLException ex) {
             throw new ServiceFailureException("Error when deleting ship from DB.", ex);
         }
+    }
+
+    @Override
+    public void deleteShipByID(long id) {
+        Ship ship = new Ship();
+        ship.setId(id);
+        deleteShip(ship);
     }
 
     @Override

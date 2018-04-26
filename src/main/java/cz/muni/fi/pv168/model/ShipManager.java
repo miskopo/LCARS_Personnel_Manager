@@ -64,4 +64,6 @@ public interface ShipManager {
      */
     List<Ship> findAllShips() throws ServiceFailureException;
 
+
+    public void deleteShipByID(long id);
 }

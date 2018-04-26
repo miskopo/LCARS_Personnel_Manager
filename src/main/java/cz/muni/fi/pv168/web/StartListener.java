@@ -3,6 +3,7 @@ package cz.muni.fi.pv168.web;
 
 import cz.muni.fi.pv168.common.DBUtils;
 import cz.muni.fi.pv168.model.CrewmanManagerImpl;
+import cz.muni.fi.pv168.model.ShipManagerImpl;
 import org.apache.derby.jdbc.EmbeddedDataSource;
 
 import javax.servlet.ServletContext;
@@ -22,6 +23,7 @@ public class StartListener implements ServletContextListener {
             ServletContext servletContext = ev.getServletContext();
             DataSource dataSource = prepareDataSource();
             servletContext.setAttribute("crewmanManager", new CrewmanManagerImpl(dataSource));
+            servletContext.setAttribute("shipManager", new ShipManagerImpl(dataSource));
         } catch (SQLException | IOException ex) {
             throw new RuntimeException();
         }
