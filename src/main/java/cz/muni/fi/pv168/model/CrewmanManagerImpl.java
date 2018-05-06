@@ -133,9 +133,9 @@ public class CrewmanManagerImpl implements CrewmanManager {
         if (crewman == null) {
             throw new IllegalArgumentException("Crewman is null.");
         }
-        if (crewman.getId() <= 0) {
-            throw new ValidationException("ID is invalid.");
-        }
+//        if (crewman.getId() <= 0) {
+//            throw new ValidationException("ID is invalid.");
+//        }
         if (crewman.getName() == null) {
             throw new ValidationException("Name is null.");
         }

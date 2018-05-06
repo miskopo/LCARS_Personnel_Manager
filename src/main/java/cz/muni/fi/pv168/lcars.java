@@ -6,6 +6,6 @@ import javax.swing.*;
  * @author Michal Polovka
  */
 public class lcars {
-    private JFormattedTextField STARFLEETPERSONELMANAGERFormattedTextField;
     private JPanel panel1;
+    private JButton button1;
 }

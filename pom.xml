@@ -59,6 +59,22 @@
             <version>3.0.1</version>
             <scope>provided</scope>
         </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.oracle</groupId>-->
+            <!--<artifactId>javafx</artifactId>-->
+            <!--<version>2.2.3</version>-->
+            <!--<scope>system</scope>-->
+            <!--<systemPath>${project.basedir}/lib/jfxrt.jar</systemPath>-->
+        <!--</dependency>-->
+        <!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>10.14.2.0</version>
+            <scope>provided</scope>
+        </dependency>
+
+
 
         <!-- Servlet and JSP APIs-->
         <!--<dependency>-->
@@ -80,12 +96,12 @@
             <artifactId>taglibs-standard-impl</artifactId>
             <version>1.2.5</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.derby</groupId>
-            <artifactId>derby</artifactId>
-            <version>10.12.1.1</version>
-            <scope>compile</scope>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.apache.derby</groupId>-->
+            <!--<artifactId>derby</artifactId>-->
+            <!--<version>10.12.1.1</version>-->
+            <!--<scope>compile</scope>-->
+        <!--</dependency>-->
     </dependencies>
     <build>
         <plugins>

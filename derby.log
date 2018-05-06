@@ -1,19 +1,13 @@
 ----------------------------------------------------------------
-Thu Apr 26 07:30:32 CEST 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0163-006e-806a-000005f481c0 
-on database directory memory:/home/cathelyn/pv168/shipmanager with class loader WebappClassLoader
-  context: /semestralproject
-  delegate: false
-  repositories:
-----------> Parent Classloader:
-ClassRealm[plugin>org.apache.tomcat.maven:tomcat7-maven-plugin:2.2, parent: sun.misc.Launcher$AppClassLoader@70dea4e]
- 
-Loaded from file:/home/cathelyn/.m2/repository/org/apache/derby/derby/10.12.1.1/derby-10.12.1.1.jar
+Sun May 06 17:18:19 CEST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0163-3608-3b24-000009c9eba8 
+on database directory memory:/home/miskopo/JavaSeminary/pv168_seminar_project/shipmanager-test with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Loaded from file:/home/miskopo/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_162-b12
-user.dir=/home/cathelyn/pv168
+java.runtime.version=1.8.0_172-b11
+user.dir=/home/miskopo/JavaSeminary/pv168_seminar_project
 os.name=Linux
 os.arch=amd64
-os.version=4.15.15-1-ARCH
+os.version=4.14.39-1-lts
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
