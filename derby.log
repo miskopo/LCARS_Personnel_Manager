@@ -1,10 +1,10 @@
 ----------------------------------------------------------------
-Sun May 06 17:18:19 CEST 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0163-3608-3b24-000009c9eba8 
+Sun May 06 20:38:27 CEST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0163-36bf-73df-000009878c88 
 on database directory memory:/home/miskopo/JavaSeminary/pv168_seminar_project/shipmanager-test with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/home/miskopo/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_172-b11
+java.vendor=JetBrains s.r.o
+java.runtime.version=1.8.0_152-release-1226-b3
 user.dir=/home/miskopo/JavaSeminary/pv168_seminar_project
 os.name=Linux
 os.arch=amd64

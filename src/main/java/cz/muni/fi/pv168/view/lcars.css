@@ -1,0 +1,22 @@
+#top_box, #master_pane {
+    -fx-background-color: #F1DF6F;
+    /*-fx-background-radius: 60px;*/
+}
+
+
+
+#stardate_label {
+    /*-fx-border-style: solid;*/
+}
+
+
+Button {
+    -fx-background-color: #3399FF;
+    -fx-border-color: black;
+    -fx-border-style: solid;
+    -fx-border-width: 5px;
+}
+
+Button:hover {
+    -fx-background-color: #3399FF;
+}
