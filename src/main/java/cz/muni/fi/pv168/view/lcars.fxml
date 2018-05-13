@@ -1,152 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
-  <children>
-    <MenuBar VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-      <HBox fx:id="top_box" prefHeight="100.0" prefWidth="200.0">
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1980.0" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane prefHeight="100.0" prefWidth="1920.0" />
+      <Label layoutX="500.0" prefHeight="100.0" prefWidth="265.0" text="  STARDATE">
+         <font>
+            <Font name="Swiss 911 Ultra Compressed BT" size="40.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1000.0" prefHeight="100.0" prefWidth="600.0" text="STAR-FLEET PERSONNEL MANAGER" textAlignment="CENTER">
+         <font>
+            <Font name="Swiss 911 Ultra Compressed BT" size="60.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutY="100.0" prefHeight="830.0" prefWidth="400.0">
          <children>
-            <HBox>
-               <children>
-                  <AnchorPane prefHeight="52.0" prefWidth="124.0" />
-                  <Label fx:id="stardate_label" alignment="CENTER" prefHeight="52.0" prefWidth="126.0" text="STARDATE: ">
-                     <font>
-                        <Font name="Swiss 911 Ultra Compressed BT" size="16.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <Label fx:id="top_banner" alignment="CENTER" contentDisplay="RIGHT" prefHeight="50.0" prefWidth="665.0" text="STAR-FLEET PERSONEL MANAGER" textAlignment="RIGHT">
+            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="Home" textAlignment="RIGHT">
                <font>
-                  <Font name="Swiss 911 Ultra Compressed BT" size="41.0" />
+                  <Font name="Swiss 911 Ultra Compressed BT" size="40.0" />
                </font>
-            </Label>
+            </Button>
+            <Button alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutY="80.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="New crewman" textAlignment="RIGHT">
+               <font>
+                  <Font name="Swiss 911 Ultra Compressed BT" size="40.0" />
+               </font>
+            </Button>
+            <Button alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutY="160.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="New ship" textAlignment="RIGHT">
+               <font>
+                  <Font name="Swiss 911 Ultra Compressed BT" size="40.0" />
+               </font>
+            </Button>
+            <Button alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutY="240.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="Assign crewman to ship" textAlignment="RIGHT">
+               <font>
+                  <Font name="Swiss 911 Ultra Compressed BT" size="40.0" />
+               </font>
+            </Button>
+            <Button alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutY="320.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="List all ships" textAlignment="RIGHT">
+               <font>
+                  <Font name="Swiss 911 Ultra Compressed BT" size="40.0" />
+               </font>
+            </Button>
+            <Button alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutY="400.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="List all crewmen" textAlignment="RIGHT">
+               <font>
+                  <Font name="Swiss 911 Ultra Compressed BT" size="40.0" />
+               </font>
+            </Button>
+            <Button alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutY="480.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="Find ship of specified crewman" textAlignment="RIGHT">
+               <font>
+                  <Font name="Swiss 911 Ultra Compressed BT" size="40.0" />
+               </font>
+            </Button>
          </children>
-      </HBox>
-    <SplitPane dividerPositions="0.25278396436525613" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <items>
-        <AnchorPane fx:id="master_pane" prefHeight="497.0" prefWidth="213.0">
-          <children>
-            <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" minWidth="60.0" prefWidth="-1.0" style="&#10;" text="Master" textAlignment="CENTER" wrapText="false">
-              <font>
-                <Font size="18.0" fx:id="x1" />
-              </font>
-              <textFill>
-                <Color blue="0.624" green="0.624" red="0.624" fx:id="x2" />
-              </textFill>
-            </Label>
-                  <Button layoutX="-1.0" layoutY="53.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="229.0" text="New Crewman">
-                     <font>
-                        <Font name="Swiss 911 Ultra Compressed BT" size="20.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="-1.0" layoutY="102.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="229.0" text="New Ship">
-                     <font>
-                        <Font name="Swiss 911 Ultra Compressed BT" size="20.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="-1.0" layoutY="151.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="229.0" text="Assign Crewman to Ship">
-                     <font>
-                        <Font name="Swiss 911 Ultra Compressed BT" size="20.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="-1.0" layoutY="200.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="229.0" text="List All Ships">
-                     <font>
-                        <Font name="Swiss 911 Ultra Compressed BT" size="20.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="-1.0" layoutY="249.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="229.0" text="List All Crewman">
-                     <font>
-                        <Font name="Swiss 911 Ultra Compressed BT" size="20.0" />
-                     </font>
-                  </Button>
-                  <Button layoutX="-1.0" layoutY="298.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="229.0" text="Find Ship of Specified Crewman">
-                     <font>
-                        <Font name="Swiss 911 Ultra Compressed BT" size="20.0" />
-                     </font>
-                  </Button>
-          </children>
-        </AnchorPane>
-        <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
-          <content>
-            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="430.0">
-              <children>
-                <Label alignment="CENTER" font="$x1" layoutX="14.0" layoutY="14.0" style="&#10;" text="View" textAlignment="CENTER" textFill="$x2" wrapText="false" />
-              </children>
-            </AnchorPane>
-          </content>
-        </ScrollPane>
-      </items>
-    </SplitPane>
-    <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
-      <children>
-        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" text="Left status" HBox.hgrow="ALWAYS">
-          <font>
-            <Font size="11.0" fx:id="x3" />
-          </font>
-          <textFill>
-            <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
-          </textFill>
-        </Label>
-        <Pane prefHeight="-1.0" prefWidth="-1.0" HBox.hgrow="ALWAYS" />
-        <Label font="$x3" maxWidth="-1.0" text="Right status" textFill="$x4" HBox.hgrow="NEVER" />
-      </children>
-      <padding>
-        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-      </padding>
-    </HBox>
-  </children>
-</VBox>
+      </AnchorPane>
+      <AnchorPane layoutX="400.0" layoutY="100.0" prefHeight="830.0" prefWidth="1580.0">
+         <children>
+            <ScrollPane prefHeight="830.0" prefWidth="1580.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+              </content>
+            </ScrollPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutY="930.0" prefHeight="150.0" prefWidth="1980.0">
+         <children>
+            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="500.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="250.0" text="SYSTEM INFORMATION" textAlignment="RIGHT" wrapText="true">
+               <font>
+                  <Font name="Swiss 911 Ultra Compressed BT" size="40.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutX="755.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="250.0" text="LC-1284" textAlignment="RIGHT">
+               <font>
+                  <Font name="Swiss 911 Ultra Compressed BT" size="40.0" />
+               </font>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" layoutX="1600.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="250.0" text="EXIT" textAlignment="CENTER">
+               <font>
+                  <Font name="Swiss 911 Ultra Compressed BT" size="60.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
