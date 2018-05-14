@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1980.0" xmlns="http://javafx.com/javafx/8.0.162-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <AnchorPane prefHeight="100.0" prefWidth="1920.0" />
+      <AnchorPane layoutX="50.0" prefHeight="100.0" prefWidth="1930.0" />
       <Label layoutX="500.0" prefHeight="100.0" prefWidth="265.0" text="  STARDATE">
          <font>
             <Font name="Swiss 911 Ultra Compressed BT" size="40.0" />
@@ -64,7 +64,7 @@
             <ScrollPane prefHeight="830.0" prefWidth="1580.0" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutY="930.0" prefHeight="150.0" prefWidth="1980.0">
+      <AnchorPane layoutX="50.0" layoutY="930.0" prefHeight="150.0" prefWidth="1930.0">
          <children>
             <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutX="500.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="250.0" text="SYSTEM INFORMATION" textAlignment="RIGHT" wrapText="true">
                <font>
@@ -83,5 +83,6 @@
             </Button>
          </children>
       </AnchorPane>
+      <AnchorPane prefHeight="1080.0" prefWidth="50.0" />
    </children>
 </AnchorPane>
