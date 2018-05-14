@@ -1,22 +1,55 @@
-#top_box, #master_pane {
-    -fx-background-color: #F1DF6F;
-    /*-fx-background-radius: 60px;*/
-}
-
 
 
 #stardate_label {
     /*-fx-border-style: solid;*/
 }
 
+#background {
+    -fx-background-color: #000000;
+}
+
+#top_box, #master_pane {
+    -fx-background-color: #F1DF6F;
+    -fx-background-radius: 60px 60px 60px 60px;
+}
+
+#view_pane {
+    /*-fx-border-radius: 60px 0px 60px 0px;*/
+}
+
+#top_view {
+    -fx-background-color: #CC6666;
+    -fx-background-radius: 60px 60px 0px 60px;
+}
+
+#side_view {
+    -fx-background-color: #CC6666;
+    -fx-background-radius: 60px 60px 60px 60px;
+}
 
 Button {
     -fx-background-color: #3399FF;
     -fx-border-color: black;
     -fx-border-style: solid;
-    -fx-border-width: 5px;
+    -fx-border-width: 5px 0px 5px 0px;
 }
 
 Button:hover {
-    -fx-background-color: #3399FF;
+    -fx-background-color: #99CCFF;
+}
+
+#exit {
+    -fx-background-color: #c10011;
+    -fx-border-width: 0px 5px 0px 5px;
+
+}
+
+#system_info {
+    -fx-background-color: #F1DF6F;
+}
+
+#home_button, #empty_button {
+    -fx-background-color: #FFFF33;
+    /*-fx-background-radius: 20px 20px 0px 0px;*/
+
 }
