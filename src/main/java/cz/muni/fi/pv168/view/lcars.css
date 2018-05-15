@@ -1,6 +1,15 @@
 
+Button, Label {
+    -fx-font-family: "Swiss 911 Ultra Compressed";
+}
 
-#stardate_label {
+.dialog-pane {
+    -fx-font-size: 35px;
+}
+
+
+
+#stardateLabel {
     /*-fx-border-style: solid;*/
 }
 
@@ -27,19 +36,26 @@
     -fx-background-radius: 60px 60px 60px 60px;
 }
 
-Button {
+#menuPane Button {
     -fx-background-color: #3399FF;
     -fx-border-color: black;
     -fx-border-style: solid;
     -fx-border-width: 5px 0px 5px 0px;
+    -fx-font-size: 35px;
 }
 
-Button:hover {
+#menuPane Button:hover {
     -fx-background-color: #99CCFF;
 }
 
-#exit {
+#exitButton {
     -fx-background-color: #c10011;
+    -fx-border-width: 0px 5px 0px 5px;
+    -fx-font-size: 60px;
+}
+
+#exitButton:hover {
+    -fx-background-color: #e50011;
     -fx-border-width: 0px 5px 0px 5px;
 
 }

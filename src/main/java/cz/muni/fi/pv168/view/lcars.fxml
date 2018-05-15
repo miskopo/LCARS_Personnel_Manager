@@ -11,61 +11,58 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="master_pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1980.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="master_pane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" stylesheets="lcars.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.muni.fi.pv168.controller.GUIController">
    <children>
       <AnchorPane fx:id="background" blendMode="ADD" prefHeight="1080.0" prefWidth="1980.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <AnchorPane layoutX="50.0" prefHeight="100.0" prefWidth="1930.0" />
-      <Label layoutX="500.0" prefHeight="100.0" prefWidth="265.0" text="  STARDATE">
+      <Label fx:id="stardateLabel" layoutX="500.0" prefHeight="100.0" prefWidth="265.0" text="STARDATE">
          <font>
-            <Font name="Swiss 911 Ultra Compressed BT" size="40.0" />
+            <Font name="Swiss 911 Ultra Compressed" size="40.0" />
          </font>
       </Label>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1000.0" prefHeight="100.0" prefWidth="600.0" text="STAR-FLEET PERSONNEL MANAGER" textAlignment="CENTER">
          <font>
-            <Font name="Swiss 911 Ultra Compressed BT" size="60.0" />
+            <Font name="Swiss 911 Ultra Compressed" size="60.0" />
          </font>
       </Label>
-      <AnchorPane layoutX="0" layoutY="100.0" prefHeight="830.0" prefWidth="400.0">
+      <AnchorPane fx:id="menuPane" layoutX="0" layoutY="100.0" prefHeight="830.0" prefWidth="400.0">
          <children>
             <Button fx:id="home_button" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="80.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="Home" textAlignment="RIGHT">
                <font>
-                  <Font name="Swiss 911 Ultra Compressed BT" size="35.0" />
+                  <Font name="Swiss 911 Ultra Compressed" size="35.0" />
                </font>
             </Button>
             <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="160.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="New crewman" textAlignment="RIGHT">
                <font>
-                  <Font name="Swiss 911 Ultra Compressed BT" size="35.0" />
+                  <Font name="Swiss 911 Ultra Compressed" size="35.0" />
                </font>
             </Button>
             <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="240.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="New ship" textAlignment="RIGHT">
                <font>
-                  <Font name="Swiss 911 Ultra Compressed BT" size="35.0" />
+                  <Font name="Swiss 911 Ultra Compressed" size="35.0" />
                </font>
             </Button>
             <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="320.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="Assign crewman to ship" textAlignment="RIGHT">
                <font>
-                  <Font name="Swiss 911 Ultra Compressed BT" size="35.0" />
+                  <Font name="Swiss 911 Ultra Compressed" size="35.0" />
                </font>
             </Button>
             <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="400.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="List all ships" textAlignment="RIGHT">
                <font>
-                  <Font name="Swiss 911 Ultra Compressed BT" size="35.0" />
+                  <Font name="Swiss 911 Ultra Compressed" size="35.0" />
                </font>
             </Button>
             <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="480.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="List all crewmen" textAlignment="RIGHT">
                <font>
-                  <Font name="Swiss 911 Ultra Compressed BT" size="35.0" />
+                  <Font name="" size="35.0" />
                </font>
             </Button>
             <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="560.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="Find ship of specified crewman" textAlignment="RIGHT">
                <font>
-                  <Font name="Swiss 911 Ultra Compressed BT" size="35.0" />
+                  <Font name="Swiss 911 Ultra Compressed" size="35.0" />
                </font>
             </Button>
             <Button fx:id="empty_button" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="640.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" textAlignment="RIGHT">
-               <font>
-                  <Font name="Swiss 911 Ultra Compressed BT" size="35.0" />
-               </font>
             </Button>
          </children>
       </AnchorPane>
@@ -80,9 +77,9 @@
          <children>
             <Label layoutX="282.0" layoutY="65.0" text="SYSTEM INFORMATION" />
             <Label layoutX="778.0" layoutY="72.0" text="LC-1284" />
-            <Button fx:id="exit" alignment="CENTER" contentDisplay="CENTER" layoutX="1600.0" mnemonicParsing="false" prefHeight="150.0" prefWidth="250.0" text="EXIT" textAlignment="CENTER">
+            <Button fx:id="exitButton" alignment="CENTER" contentDisplay="CENTER" layoutX="1600.0" mnemonicParsing="false" onAction="#exit" prefHeight="150.0" prefWidth="250.0" text="EXIT" textAlignment="CENTER">
                <font>
-                  <Font name="Swiss 911 Ultra Compressed BT" size="60.0" />
+                  <Font name="Swiss 911 Ultra Compressed" size="60.0" />
                </font>
             </Button>
          </children>
