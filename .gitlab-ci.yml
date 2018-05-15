@@ -1,5 +1,5 @@
 #image: mvn-pb162:v1.0
-image: maven
+image: maven:3.5.0-jdk-8
 
 coverage:
    script:
