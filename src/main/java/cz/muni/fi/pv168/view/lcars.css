@@ -7,10 +7,9 @@ Button, Label {
     -fx-font-size: 35px;
 }
 
-
-
-#stardateLabel {
-    /*-fx-border-style: solid;*/
+#starDateLabel {
+    -fx-background-color: #F1DF6F;
+    -fx-font-size: 35px;
 }
 
 #background {

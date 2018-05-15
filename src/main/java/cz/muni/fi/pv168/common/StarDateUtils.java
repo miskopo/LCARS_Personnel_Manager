@@ -41,4 +41,8 @@ public class StarDateUtils {
         return Double.parseDouble(starDateString);
 
     }
+
+    public static double getCurrentStarDate(){
+        return dateToStarDate(LocalDate.now());
+    }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<?import cz.muni.fi.pv168.common.StarDateUtils?>
 <?import javafx.scene.canvas.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -15,7 +15,8 @@
    <children>
       <AnchorPane fx:id="background" blendMode="ADD" prefHeight="1080.0" prefWidth="1980.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <AnchorPane layoutX="50.0" prefHeight="100.0" prefWidth="1930.0" />
-      <Label fx:id="stardateLabel" layoutX="500.0" prefHeight="100.0" prefWidth="265.0" text="STARDATE">
+      <Label fx:id="starDateLabel" layoutX="500.0" prefHeight="100.0" prefWidth="265.0"
+             text="${StarDateUtils.starDate}">
          <font>
             <Font name="Swiss 911 Ultra Compressed" size="40.0" />
          </font>
