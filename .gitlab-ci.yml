@@ -1,4 +1,5 @@
-image: mvn-pb162:v1.0
+#image: mvn-pb162:v1.0
+image: kaiwinter/docker-java8-maven
 
 coverage:
    script:

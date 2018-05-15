@@ -8,7 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
-import sun.plugin.javascript.navig.Anchor;
 
 public class GUI extends Application{
     @Override
