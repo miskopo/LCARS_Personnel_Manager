@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Tue May 15 18:52:53 CEST 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0163-64b8-0af8-000008eae2e0 
+Tue May 15 19:12:31 CEST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0163-64ca-0607-000008eafcf8 
 on database directory memory:/home/cathelyn/pv168/shipmanager-test with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
 Loaded from file:/home/cathelyn/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
 java.vendor=Oracle Corporation
