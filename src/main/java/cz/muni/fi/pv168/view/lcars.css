@@ -16,7 +16,7 @@ Button, Label {
     -fx-background-color: #000000;
 }
 
-#top_box, #master_pane {
+#top_box, #masterPane {
     -fx-background-color: #F1DF6F;
     -fx-background-radius: 60px 60px 60px 60px;
 }
@@ -63,8 +63,10 @@ Button, Label {
     -fx-background-color: #F1DF6F;
 }
 
-#home_button, #empty_button {
+#homeButton, #empty_button {
     -fx-background-color: #FFFF33;
-    /*-fx-background-radius: 20px 20px 0px 0px;*/
+}
 
+#homeButton:hover, #empty_button:hover {
+    -fx-background-color: #FFFF33;
 }

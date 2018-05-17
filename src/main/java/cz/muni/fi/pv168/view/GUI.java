@@ -15,8 +15,8 @@ public class GUI extends Application{
         primaryStage.setTitle("Starfleet personnel manager");
         Parent root = FXMLLoader.load(getClass().getResource("lcars.fxml"));
         Scene scene = new Scene(root, 1920 , 1080);   // 19:10
-        Font.loadFont(GUI.class.getResource("/Swiss 911 Ultra Compressed.ttf").toExternalForm(), -1);
-        scene.getStylesheets().add(getClass().getResource("/cz/muni/fi/pv168/view/lcars.css").toExternalForm());
+        Font.loadFont(GUI.class.getResourceAsStream("/Swiss 911 Ultra Compressed.ttf"), -1);
+        scene.getStylesheets().add(getClass().getResource("lcars.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setResizable(true);
 
