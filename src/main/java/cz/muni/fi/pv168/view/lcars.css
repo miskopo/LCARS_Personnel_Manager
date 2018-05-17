@@ -4,7 +4,7 @@ Button, Label {
 }
 
 .dialog-pane {
-    -fx-font-size: 35px;
+    -fx-font-size: 25px;
 }
 
 #starDateLabel {
@@ -14,25 +14,27 @@ Button, Label {
 
 #background {
     -fx-background-color: #000000;
+    -fx-blend-mode: screen;
 }
 
 #top_box, #masterPane {
     -fx-background-color: #F1DF6F;
-    -fx-background-radius: 60px 60px 60px 60px;
+    -fx-background-radius: 100px 100px 100px 100px;
 }
 
-#view_pane {
-    /*-fx-border-radius: 60px 0px 60px 0px;*/
+#viewPane {
+    -fx-background-radius: 60px 0px 0px 60px;
+    -fx-background-color: #000000;
 }
 
-#top_view {
+#topViewDecoration {
     -fx-background-color: #CC6666;
     -fx-background-radius: 60px 60px 0px 60px;
 }
 
-#side_view {
+#sideViewDecoration {
     -fx-background-color: #CC6666;
-    -fx-background-radius: 60px 60px 60px 60px;
+    -fx-background-radius: 0px 0px 60px 60px;
 }
 
 #menuPane Button {
@@ -54,7 +56,7 @@ Button, Label {
 }
 
 #exitButton:hover {
-    -fx-background-color: #e50011;
+    -fx-background-color: #f30012;
     -fx-border-width: 0px 5px 0px 5px;
 
 }
@@ -63,10 +65,23 @@ Button, Label {
     -fx-background-color: #F1DF6F;
 }
 
-#homeButton, #empty_button {
+#homeButton, #emptyButton {
     -fx-background-color: #FFFF33;
 }
 
-#homeButton:hover, #empty_button:hover {
+#homeButton:hover, #emptyButton:hover {
     -fx-background-color: #FFFF33;
+}
+
+#softwareInfoLabel {
+    -fx-font-size: 35px;
+}
+
+#windowTitle {
+    -fx-background-color: #000000;
+    -fx-text-fill: #FFFFFF;
+}
+
+#sphere {
+    -fx-fill: #FFFF33;
 }

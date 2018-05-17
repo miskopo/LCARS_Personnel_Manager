@@ -2,34 +2,33 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="masterPane" stylesheets="lcars.css" xmlns="http://javafx.com/javafx/8.0.121"
-            xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.muni.fi.pv168.controller.GUIController">
+<AnchorPane fx:id="masterPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="942.0" prefWidth="1560.0" stylesheets="lcars.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="cz.muni.fi.pv168.controller.GUIController">
    <children>
-      <AnchorPane fx:id="background" blendMode="ADD" prefHeight="1080.0" prefWidth="1980.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <AnchorPane layoutX="50.0" prefHeight="100.0" prefWidth="1930.0" />
+      <Pane fx:id="background" prefHeight="1080.0" prefWidth="1980.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
       <Label fx:id="starDateLabel" layoutX="500.0" prefHeight="100.0" prefWidth="265.0" text="STARDATE: ">
          <font>
             <Font name="Swiss 911 Ultra Compressed" size="40.0" />
          </font>
       </Label>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="1000.0" prefHeight="100.0" prefWidth="600.0" text="STAR-FLEET PERSONNEL MANAGER" textAlignment="CENTER">
+      <Label fx:id="windowTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="1000.0" prefHeight="136.0" prefWidth="600.0" text="STAR-FLEET PERSONNEL MANAGER" textAlignment="CENTER">
          <font>
             <Font name="Swiss 911 Ultra Compressed" size="60.0" />
          </font>
       </Label>
-      <AnchorPane fx:id="menuPane" layoutX="0" layoutY="100.0" prefHeight="830.0" prefWidth="400.0">
+      <AnchorPane fx:id="menuPane" layoutX="0" layoutY="142.0" prefHeight="788.0" prefWidth="400.0">
          <children>
-            <Button fx:id="homeButton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="80.0"
-                    mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="Home" textAlignment="RIGHT">
+            <Button fx:id="homeButton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="80.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="Home" textAlignment="RIGHT">
                <font>
                   <Font name="Swiss 911 Ultra Compressed" size="35.0" />
                </font>
             </Button>
-            <Button alignment="CENTER_RIGHT" contentDisplay="CENTER" layoutY="160.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="New crewman" textAlignment="RIGHT">
+            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="160.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="New crewman" textAlignment="RIGHT">
                <font>
                   <Font name="Swiss 911 Ultra Compressed" size="35.0" />
                </font>
@@ -59,28 +58,31 @@
                   <Font name="Swiss 911 Ultra Compressed" size="35.0" />
                </font>
             </Button>
-            <Button fx:id="empty_button" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="640.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" textAlignment="RIGHT">
+            <Button fx:id="emptyButton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="640.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" textAlignment="RIGHT">
             </Button>
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="400.0" layoutY="100.0" prefHeight="830.0" prefWidth="1580.0">
-         <children>
-            <ScrollPane fx:id="view_pane" prefHeight="830.0" prefWidth="1580.0" />
-            <AnchorPane fx:id="side_view" layoutX="1452.0" layoutY="32.0" prefHeight="718.0" prefWidth="106.0" />
-            <AnchorPane fx:id="top_view" layoutX="100.0" layoutY="32.0" prefHeight="106.0" prefWidth="1458.0" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="50.0" layoutY="930.0" prefHeight="150.0" prefWidth="1930.0">
          <children>
             <Label layoutX="282.0" layoutY="65.0" text="SYSTEM INFORMATION" />
-            <Label layoutX="778.0" layoutY="72.0" text="LC-1284" />
-            <Button fx:id="exitButton" alignment="CENTER" contentDisplay="CENTER" layoutX="1600.0" mnemonicParsing="false" onAction="#exit" prefHeight="150.0" prefWidth="250.0" text="EXIT" textAlignment="CENTER">
+            <Label fx:id="softwareInfoLabel" layoutX="791.0" layoutY="50.0" text="LC-1284" />
+            <Button fx:id="exitButton" alignment="CENTER" contentDisplay="CENTER" layoutX="1500.0" mnemonicParsing="false" onAction="#exit" prefHeight="150.0" prefWidth="250.0" text="EXIT" textAlignment="CENTER">
                <font>
                   <Font name="Swiss 911 Ultra Compressed" size="60.0" />
                </font>
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane prefHeight="1080.0" prefWidth="50.0" />
+      <Pane fx:id="viewPane" layoutX="400.0" layoutY="131.0" prefHeight="799.0" prefWidth="1580.0">
+         <children>
+            <Pane fx:id="topViewDecoration" layoutX="70.0" layoutY="36.0" prefHeight="100.0" prefWidth="1450.0" />
+            <Pane fx:id="sideViewDecoration" layoutX="1420.0" layoutY="135.0" prefHeight="612.0" prefWidth="100.0" />
+            <TableView fx:id="tableView" layoutX="164.0" layoutY="186.0" prefHeight="528.0" prefWidth="1192.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+         </children></Pane>
    </children>
 </AnchorPane>

@@ -1,17 +1,11 @@
-#image: mvn-pb162:v1.0
 image: maven:3.5.0-jdk-8
 
 before_script:
     - apt-get update
     - apt-get -y install openjfx
-coverage:
-   script:
-    - mvn clean install -Dmaven.test.failure.ignore=true
-    - "cat target/site/jacoco-ut/index.html"
-   tags:
-    - shared-fi
 build:
   script:
     - mvn clean install -B  -Dcheckstyle.fail=false
+    - "cat target/site/jacoco-ut/index.html"
   tags:
     - shared-fi

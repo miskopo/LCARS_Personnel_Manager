@@ -3,12 +3,13 @@
 [![pipeline status](https://gitlab.fi.muni.cz/xpolovka/pv168/badges/master/pipeline.svg)](https://gitlab.fi.muni.cz/xpolovka/pv168/commits/master)
 [![coverage report](https://gitlab.fi.muni.cz/xpolovka/pv168/badges/master/coverage.svg)](https://gitlab.fi.muni.cz/xpolovka/pv168/commits/master)
 [![maven_version](https://img.shields.io/badge/Maven-4.0.0-yellowgreen.svg)]()
+[![javafx_version](https://img.shields.io/badge/JavaFX-2.2-yellowgreen.svg?style=flat-round)]()
 [![licence](https://img.shields.io/badge/License-GNU%2FGPL3-blue.svg)](LICENSE)
 
 __Space, the final frontier.__ :rocket:
 
 This application is made for educational purposes.
-It's "disguised" as personnel manager of some Star fleet HR manager. 
+It's "disguised" as personnel manager of some Star fleet HR manager.
 Thus, it has
 following properties (marked are implemented):
 
