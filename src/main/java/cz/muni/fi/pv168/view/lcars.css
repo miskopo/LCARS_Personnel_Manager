@@ -3,11 +3,9 @@ Button, Label {
     -fx-font-family: "Swiss 911 Ultra Compressed";
 }
 
-.dialog-pane {
-    -fx-font-size: 25px;
-}
 .dialog-pane * {
     -fx-font-family: SansSerif !important;
+    -fx-font-size: 15px;
 }
 
 #starDateLabel {
@@ -64,10 +62,6 @@ Button, Label {
 
 }
 
-/*#system_info {*/
-    /*-fx-background-color: #F1DF6F;*/
-/*}*/
-
 #homeButton, #emptyButton {
     -fx-background-color: #FFFF33;
 }
@@ -85,6 +79,6 @@ Button, Label {
     -fx-text-fill: #FFFFFF;
 }
 
-#sphere {
-    -fx-fill: #FFFF33;
-}
+/**
+Home specific elements
+ */

@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 public class GUI extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
-        GUIController guiController = new GUIController();
+//        GUIController guiController = new GUIController();
         primaryStage.setTitle("Starfleet personnel manager");
         Parent root = FXMLLoader.load(getClass().getResource("lcars.fxml"));
         Scene scene = new Scene(root, 1920 , 1080);   // 19:10
@@ -26,8 +26,6 @@ public class GUI extends Application{
         primaryStage.setFullScreen(true);
         // set taskbar icon
         primaryStage.getIcons().add(new Image(GUI.class.getResourceAsStream("/icon.png")));
-        // TODO: set stardate
-        StarDateUtils starDateUtils = new StarDateUtils(StarDateUtils.getCurrentStarDate());
         primaryStage.show();
 
     }
