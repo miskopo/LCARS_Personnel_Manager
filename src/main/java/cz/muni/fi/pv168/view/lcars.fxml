@@ -64,8 +64,8 @@
       </AnchorPane>
       <AnchorPane layoutX="50.0" layoutY="930.0" prefHeight="150.0" prefWidth="1930.0">
          <children>
-            <Label layoutX="282.0" layoutY="65.0" text="SYSTEM INFORMATION" />
-            <Label fx:id="softwareInfoLabel" layoutX="791.0" layoutY="50.0" text="LC-1284" />
+            <Label fx:id="systemInformation" layoutX="282.0" layoutY="55.0" text="SYSTEM INFORMATION" />
+            <Label fx:id="softwareInfoLabel" layoutX="791.0" layoutY="55.0" text="LC-1284" />
             <Button fx:id="exitButton" alignment="CENTER" contentDisplay="CENTER" layoutX="1500.0" mnemonicParsing="false" onAction="#exit" prefHeight="150.0" prefWidth="250.0" text="EXIT" textAlignment="CENTER">
                <font>
                   <Font name="Swiss 911 Ultra Compressed" size="60.0" />

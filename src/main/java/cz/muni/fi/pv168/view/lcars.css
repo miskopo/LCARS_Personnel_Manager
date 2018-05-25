@@ -6,6 +6,9 @@ Button, Label {
 .dialog-pane {
     -fx-font-size: 25px;
 }
+.dialog-pane * {
+    -fx-font-family: SansSerif !important;
+}
 
 #starDateLabel {
     -fx-background-color: #F1DF6F;
@@ -61,9 +64,9 @@ Button, Label {
 
 }
 
-#system_info {
-    -fx-background-color: #F1DF6F;
-}
+/*#system_info {*/
+    /*-fx-background-color: #F1DF6F;*/
+/*}*/
 
 #homeButton, #emptyButton {
     -fx-background-color: #FFFF33;
@@ -73,7 +76,7 @@ Button, Label {
     -fx-background-color: #FFFF33;
 }
 
-#softwareInfoLabel {
+#softwareInfoLabel, #systemInformation {
     -fx-font-size: 35px;
 }
 

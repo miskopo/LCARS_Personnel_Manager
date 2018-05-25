@@ -22,12 +22,23 @@ public class GUIController {
     private Label starDateLabel;
 
     @FXML
-    void setCurrentStarDate(ActionEvent event){
-        starDateLabel.textProperty().setValue("STARDATE: " + StarDateUtils.dateToStarDate(LocalDate.now()));
-    }
+    private Label systemInformation;
 
     @FXML
-    void exit(ActionEvent event) {
+    private void initialize() {
+        starDateLabel.textProperty().setValue("STARDATE: " + StarDateUtils.dateToStarDate(LocalDate.now()));
+        systemInformation.textProperty().setValue("Available memory: " + Runtime.getRuntime().freeMemory()/1_000_000 +
+                "/" +
+                Runtime.getRuntime().totalMemory() / 1_000_000);
+    }
+
+//    @FXML
+//    private void setCurrentStarDate(ActionEvent event){
+//        starDateLabel.textProperty().setValue("STARDATE: " + StarDateUtils.dateToStarDate(LocalDate.now()));
+//    }
+
+    @FXML
+    private void exit(ActionEvent event) {
         Window window = exitButton.getScene().getWindow();
         if (AlertHelper.showAlertWithConfirmation(window, "Exit confirmation", "Are you sure you want to exit " +
                 "application?")) {
