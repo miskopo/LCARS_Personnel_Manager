@@ -28,15 +28,15 @@ Button, Label {
     -fx-background-color: #000000;
 }
 
-#topViewDecoration {
-    -fx-background-color: #CC6666;
-    -fx-background-radius: 60px 60px 0px 60px;
-}
+/*#topViewDecoration {*/
+    /*-fx-background-color: #CC6666;*/
+    /*-fx-background-radius: 60px 60px 0px 60px;*/
+/*}*/
 
-#sideViewDecoration {
-    -fx-background-color: #CC6666;
-    -fx-background-radius: 0px 0px 60px 60px;
-}
+/*#sideViewDecoration {*/
+    /*-fx-background-color: #CC6666;*/
+    /*-fx-background-radius: 0px 0px 60px 60px;*/
+/*}*/
 
 #menuPane Button {
     -fx-background-color: #3399FF;
@@ -82,3 +82,8 @@ Button, Label {
 /**
 Home specific elements
  */
+
+#welcomeLabel {
+    -fx-font-size: 70px;
+    -fx-text-fill: #FFFFFF;
+}

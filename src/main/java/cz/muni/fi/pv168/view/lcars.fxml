@@ -68,10 +68,10 @@
             </Button>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="50.0" layoutY="930.0" prefHeight="150.0" prefWidth="1930.0">
+      <AnchorPane fx:id="bottomAnchorPane" layoutX="50.0" layoutY="930.0" prefHeight="150.0" prefWidth="1930.0">
          <children>
-            <Label fx:id="systemInformation" layoutX="282.0" layoutY="55.0" text="SYSTEM INFORMATION" />
-            <Label fx:id="softwareInfoLabel" layoutX="791.0" layoutY="55.0" text="LC-1284" />
+            <Label fx:id="systemInformation" layoutX="500.0" layoutY="55.0" text="SYSTEM INFORMATION" />
+            <Label fx:id="softwareInfoLabel" layoutX="900.0" layoutY="55.0" text="LC-1284" />
             <Button fx:id="exitButton" alignment="CENTER" contentDisplay="CENTER" layoutX="1500.0" mnemonicParsing="false" onAction="#exit" prefHeight="150.0" prefWidth="250.0" text="EXIT" textAlignment="CENTER">
                <font>
                   <Font name="Swiss 911 Ultra Compressed" size="60.0" />
@@ -79,10 +79,6 @@
             </Button>
          </children>
       </AnchorPane>
-      <Pane fx:id="viewPane" layoutX="400.0" layoutY="131.0" prefHeight="799.0" prefWidth="1580.0">
-         <children>
-            <Pane fx:id="topViewDecoration" layoutX="70.0" layoutY="36.0" prefHeight="100.0" prefWidth="1450.0" />
-            <Pane fx:id="sideViewDecoration" layoutX="1420.0" layoutY="135.0" prefHeight="612.0" prefWidth="100.0" />
-         </children></Pane>
+      <Pane fx:id="viewPane" layoutX="400.0" layoutY="130.0" prefHeight="800.0" prefWidth="1580.0" />
    </children>
 </AnchorPane>
