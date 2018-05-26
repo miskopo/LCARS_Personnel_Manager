@@ -13,10 +13,11 @@ import java.sql.Statement;
 public class DatabaseController {
 
 //    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    private File databaseFile = new File("../model/Database.db");
+    private File databaseFile = new File("src/main/java/cz/muni/fi/pv168/model/Database.db");
     private final String DB_URL = "jdbc:sqlite:" + databaseFile.getAbsolutePath();
 
     public void createConnection() throws SQLException {
+        System.out.println(DB_URL);
         Connection conn;
         Statement stmt;
             //STEP 2: Register JDBC driver
@@ -25,7 +26,6 @@ public class DatabaseController {
             //STEP 3: Open a connection
             System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(DB_URL);
-
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
