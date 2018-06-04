@@ -31,39 +31,44 @@
       <AnchorPane fx:id="menuPane" layoutX="0" layoutY="142.0" prefHeight="788.0" prefWidth="400.0">
          <children>
             <Button fx:id="homeButton" onAction="#renderHome" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="80.0"
-                    mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="Home" textAlignment="RIGHT">
+                    mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="%home" textAlignment="RIGHT">
                <font>
                   <Font name="Swiss 911 Ultra Compressed" size="35.0" />
                </font>
             </Button>
             <Button alignment="CENTER_RIGHT" onAction="#renderNewCrewman" contentDisplay="RIGHT" layoutY="160.0"
                     mnemonicParsing="false"
-                    prefHeight="80.0" prefWidth="400.0" text="New crewman" textAlignment="RIGHT">
+                    prefHeight="80.0" prefWidth="400.0" text="%newCrewman" textAlignment="RIGHT">
                <font>
                   <Font name="Swiss 911 Ultra Compressed" size="35.0" />
                </font>
             </Button>
-            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="240.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="New ship" textAlignment="RIGHT">
+            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="240.0" mnemonicParsing="false"
+                    prefHeight="80.0" prefWidth="400.0" text="%newShip" textAlignment="RIGHT">
                <font>
                   <Font name="Swiss 911 Ultra Compressed" size="35.0" />
                </font>
             </Button>
-            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="320.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="Assign crewman to ship" textAlignment="RIGHT">
+            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="320.0" mnemonicParsing="false"
+                    prefHeight="80.0" prefWidth="400.0" text="%assignCrewmanToShip" textAlignment="RIGHT">
                <font>
                   <Font name="Swiss 911 Ultra Compressed" size="35.0" />
                </font>
             </Button>
-            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="400.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="List all ships" textAlignment="RIGHT">
+            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="400.0" mnemonicParsing="false"
+                    prefHeight="80.0" prefWidth="400.0" text="%listAllShips" textAlignment="RIGHT">
                <font>
                   <Font name="Swiss 911 Ultra Compressed" size="35.0" />
                </font>
             </Button>
-            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="480.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="List all crewmen" textAlignment="RIGHT">
+            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="480.0" mnemonicParsing="false"
+                    prefHeight="80.0" prefWidth="400.0" text="%listAllCrewmen" textAlignment="RIGHT">
                <font>
                   <Font name="" size="35.0" />
                </font>
             </Button>
-            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="560.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="Find ship of specified crewman" textAlignment="RIGHT">
+            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="560.0" mnemonicParsing="false"
+                    prefHeight="80.0" prefWidth="400.0" text="%findShipOfSpecifiedCrewman" textAlignment="RIGHT">
                <font>
                   <Font name="Swiss 911 Ultra Compressed" size="35.0" />
                </font>
@@ -76,7 +81,9 @@
          <children>
             <Label fx:id="systemInformation" layoutX="500.0" layoutY="55.0" text="SYSTEM INFORMATION" />
             <Label fx:id="softwareInfoLabel" layoutX="900.0" layoutY="55.0" text="LC-1284" />
-            <Button fx:id="exitButton" alignment="CENTER" contentDisplay="CENTER" layoutX="1500.0" mnemonicParsing="false" onAction="#exit" prefHeight="150.0" prefWidth="250.0" text="EXIT" textAlignment="CENTER">
+            <Button fx:id="exitButton" alignment="CENTER" contentDisplay="CENTER" layoutX="1500.0"
+                    mnemonicParsing="false" onAction="#exit" prefHeight="150.0" prefWidth="250.0" text="%exit"
+                    textAlignment="CENTER">
                <font>
                   <Font name="Swiss 911 Ultra Compressed" size="60.0" />
                </font>
