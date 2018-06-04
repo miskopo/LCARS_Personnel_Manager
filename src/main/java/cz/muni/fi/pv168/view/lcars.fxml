@@ -62,7 +62,7 @@
                </font>
             </Button>
             <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="480.0" mnemonicParsing="false"
-                    prefHeight="80.0" prefWidth="400.0" text="%listAllCrewmen" textAlignment="RIGHT">
+                    prefHeight="80.0" prefWidth="400.0" text="%listAllCrewmen" onAction="#renderListAllCrewmen" textAlignment="RIGHT">
                <font>
                   <Font name="" size="35.0" />
                </font>

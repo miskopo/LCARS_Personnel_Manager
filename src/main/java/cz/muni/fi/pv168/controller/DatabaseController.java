@@ -12,15 +12,13 @@ import java.sql.Statement;
  */
 public class DatabaseController {
 
-//    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
     private static File databaseFile = new File("src/main/java/cz/muni/fi/pv168/model/Database.db");
     private final static String DB_URL = "jdbc:sqlite:" + databaseFile.getAbsolutePath();
 
     public static Connection createConnection() throws SQLException {
             // TODO: logging
             return DriverManager.getConnection(DB_URL);
-
-    }
+}
 }
 
 

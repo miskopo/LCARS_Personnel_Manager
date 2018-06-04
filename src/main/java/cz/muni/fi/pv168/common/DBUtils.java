@@ -42,6 +42,25 @@ public class DBUtils {
     }
 
     /**
+     * Executes SQL script using Connection
+     * @param connection connection to SQL database
+     * @param is
+     * @throws SQLException
+     * @throws IOException
+     */
+    public static void executeSqlScript(Connection connection, InputStream is) throws SQLException, IOException {
+        Scanner s = new Scanner(is).useDelimiter(";");
+        while (s.hasNext()) {
+            String sql = s.next().trim();
+            if (sql.isEmpty()) continue;
+            try (PreparedStatement st1 = connection.prepareStatement(sql)) {
+                st1.execute();
+            }
+        }
+    }
+
+
+    /**
      * Executes SQL script.
      *
      * @param dataSource datasource
@@ -50,14 +69,7 @@ public class DBUtils {
      */
     public static void executeSqlScript(DataSource dataSource, InputStream is) throws SQLException, IOException {
         try (Connection c = dataSource.getConnection()) {
-            Scanner s = new Scanner(is).useDelimiter(";");
-            while (s.hasNext()) {
-                String sql = s.next().trim();
-                if (sql.isEmpty()) continue;
-                try (PreparedStatement st1 = c.prepareStatement(sql)) {
-                    st1.execute();
-                }
-            }
+            executeSqlScript(c, is);
         }
     }
 }
