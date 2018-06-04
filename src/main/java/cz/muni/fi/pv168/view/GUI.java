@@ -18,10 +18,9 @@ import java.util.ResourceBundle;
 public class GUI extends Application{
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Locale locale = Locale.getDefault();
         primaryStage.setTitle("Starfleet personnel manager");
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("lcars.fxml"));
-        fxmlLoader.setResources(ResourceBundle.getBundle("bundles.lcars", locale));
+        fxmlLoader.setResources(ResourceBundle.getBundle("cz.muni.fi.pv168.view.bundles.lcars", Locale.getDefault()));
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 1920 , 1080);   // 19:10
         // set font

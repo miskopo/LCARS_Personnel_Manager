@@ -22,7 +22,8 @@
             <Font name="Swiss 911 Ultra Compressed" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="windowTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="1000.0" prefHeight="136.0" prefWidth="600.0" text="STAR-FLEET PERSONNEL MANAGER" textAlignment="CENTER">
+      <Label fx:id="windowTitle" alignment="CENTER" contentDisplay="CENTER" layoutX="1000.0" prefHeight="136.0"
+             prefWidth="600.0" text="%mainTitle" textAlignment="CENTER">
          <font>
             <Font name="Swiss 911 Ultra Compressed" size="60.0" />
          </font>
