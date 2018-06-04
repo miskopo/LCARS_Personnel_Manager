@@ -27,9 +27,10 @@ public class GUIController {
     @FXML private Label starDateLabel;
     @FXML private Label systemInformation;
     @FXML private Pane viewPane;
+    private Image globe;
 
     @FXML
-    private void initialize(ResourceBundle resourceBundle) {
+    private void initialize() {
         starDateLabel.textProperty().setValue("STARDATE: " + StarDateUtils.dateToStarDate(LocalDate.now()));
         systemInformation.textProperty().setValue("Available memory: " + Runtime.getRuntime().freeMemory()/1_000_000 +
                 "/" +
@@ -42,12 +43,10 @@ public class GUIController {
     private void renderHome() {
         // clean up the pane
         viewPane.getChildren().clear();
-        Image image = new Image("/globe.png");
-        ImageView imageView = new ImageView(image);
-//        imageView.preserveRatioProperty();
-//        imageView.setFitHeight(200);
-        imageView.setLayoutX(viewPane.getLayoutX() + viewPane.getWidth() + image.getWidth());
-        imageView.setLayoutY(viewPane.getHeight() + image.getHeight() - 5);
+        globe = new Image("/globe.png");
+        ImageView imageView = new ImageView(globe);
+        imageView.setLayoutX(viewPane.getLayoutX() +  globe.getWidth());
+        imageView.setLayoutY(globe.getHeight() - 5);
         viewPane.getChildren().add(imageView);
 
         Label welcomeLabel = new Label();
