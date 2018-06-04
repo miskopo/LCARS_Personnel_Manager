@@ -87,3 +87,13 @@ Home specific elements
     -fx-font-size: 70px;
     -fx-text-fill: #FFFFFF;
 }
+
+#dbStatusLabel, #dbStatusLabelOff {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 50px;
+}
+
+#dbStatusLabelOff {
+    -fx-text-fill: #f30012;
+    -fx-background-color: #000000;
+}

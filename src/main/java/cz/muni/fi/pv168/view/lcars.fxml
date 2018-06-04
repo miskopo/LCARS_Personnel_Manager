@@ -29,12 +29,15 @@
       </Label>
       <AnchorPane fx:id="menuPane" layoutX="0" layoutY="142.0" prefHeight="788.0" prefWidth="400.0">
          <children>
-            <Button fx:id="homeButton" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="80.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="Home" textAlignment="RIGHT">
+            <Button fx:id="homeButton" onAction="#renderHome" alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="80.0"
+                    mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="Home" textAlignment="RIGHT">
                <font>
                   <Font name="Swiss 911 Ultra Compressed" size="35.0" />
                </font>
             </Button>
-            <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" layoutY="160.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="400.0" text="New crewman" textAlignment="RIGHT">
+            <Button alignment="CENTER_RIGHT" onAction="#renderNewCrewman" contentDisplay="RIGHT" layoutY="160.0"
+                    mnemonicParsing="false"
+                    prefHeight="80.0" prefWidth="400.0" text="New crewman" textAlignment="RIGHT">
                <font>
                   <Font name="Swiss 911 Ultra Compressed" size="35.0" />
                </font>
