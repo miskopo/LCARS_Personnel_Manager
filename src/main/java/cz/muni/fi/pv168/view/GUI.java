@@ -24,7 +24,7 @@ public class GUI extends Application{
         Parent root = fxmlLoader.load();
         Scene scene = new Scene(root, 1920 , 1080);   // 19:10
         // set font
-        Font.loadFont(GUI.class.getResourceAsStream("/Swiss 911 Ultra Compressed.ttf"), -1);
+        Font.loadFont(GUI.class.getResourceAsStream("/Swiss 911 XCm BT.ttf"), -1);
         // assign stylesheet
         scene.getStylesheets().add(getClass().getResource("lcars.css").toExternalForm());
         // set scene to stage

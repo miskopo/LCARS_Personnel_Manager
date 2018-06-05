@@ -98,8 +98,8 @@ public class GUIController {
         viewPane.getChildren().clear();
         TableView tableView = new TableView();
         tableView.setEditable(true);
-                TableColumn name = new TableColumn("Name");
-        TableColumn rank= new TableColumn("Rank");
+                TableColumn name = new TableColumn(resourceBundle.getString("crewmanName"));
+        TableColumn rank= new TableColumn(resourceBundle.getString("crewmanRank"));
         // TODO: Resolve if possible
         tableView.getColumns().addAll(name, rank);
         ObservableList<ObservableList> dataToShow = FXCollections.observableArrayList();
@@ -126,8 +126,8 @@ public class GUIController {
     @FXML
     private void exit(ActionEvent event) {
         Window window = exitButton.getScene().getWindow();
-        if (AlertHelper.showAlertWithConfirmation(window, "Exit confirmation", "Are you sure you want to exit " +
-                " this application?")) {
+        if (AlertHelper.showAlertWithConfirmation(window, resourceBundle.getString("exitConfirmation"),
+                resourceBundle.getString("confirmationDialog"))) {
             Stage stage = (Stage) window;
             stage.close();
         }
