@@ -1,6 +1,5 @@
 # Star fleet personnel manager
 [![Build Status](https://travis-ci.org/miskopo/LCARS_Personnel_Manager.svg?branch=master)](https://travis-ci.org/miskopo/LCARS_Personnel_Manager)
-[![coverage report](https://gitlab.fi.muni.cz/xpolovka/pv168/badges/master/coverage.svg)](https://gitlab.fi.muni.cz/xpolovka/pv168/commits/master)
 [![maven_version](https://img.shields.io/badge/Maven-4.0.0-yellowgreen.svg)]()
 [![javafx_version](https://img.shields.io/badge/JavaFX-2.2-yellowgreen.svg?style=flat-round)]()
 [![licence](https://img.shields.io/badge/License-GNU%2FGPL3-blue.svg)](LICENSE)
